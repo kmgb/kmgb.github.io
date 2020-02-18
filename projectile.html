@@ -7,6 +7,24 @@
     <link href="style.css" rel="stylesheet" type="text/css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 </head>
 
 <body>
@@ -57,23 +75,25 @@
                 Now we have \(\vec{r}\) isolated, but we don't know what \(t\), the time of impact, is. We obviously can't find a solution in this form, but we have a trick that will make this possible to solve -- we can dot product both sides by themselves.
                 <br>
                 \(
-                \vec{r} \cdot \vec{r} = (
-                \vec{p}(0) \cdot \vec{p}(0)
+                \vec{r} \cdot \vec{r} = 
+                \frac{(
+                \displaystyle \vec{p}(0) \cdot \vec{p}(0)
                 + 2\vec{p}(0) \cdot \vec{v}t
                 + \vec{p}(0) \cdot \vec{a}t^2
                 + \vec{v} \cdot \vec{v}t^2
                 + \vec{v} \cdot \vec{a}t^3
-                + \frac{1}{4}\vec{a} \cdot \vec{a}t^4) / t^2
+                + \frac{1}{4}\vec{a} \cdot \vec{a}t^4)
+                }{\displaystyle t^2}
                 \)
                 <br>
                 Rearranging, and grouping by power of t, we get
                 <br>
                 \(
-                \frac{1}{4}(\vec{a} \cdot \vec{a})t^4
+                \frac{1}{4}(\|\vec{a}\|^2)t^4
                 + (\vec{a} \cdot \vec{v})t^3
-                + (\vec{p}(0) \cdot \vec{a} + \vec{v} \cdot \vec{v} - \vec{r} \cdot \vec{r})t^2
+                + (\vec{p}(0) \cdot \vec{a} + \|\vec{v}\|^2 - \|\vec{r}\|^2)t^2
                 + 2(\vec{p}(0) \cdot \vec{v})t
-                + \vec{p}(0) \cdot\ \vec{p}(0) = 0
+                + \|\vec{p}(0)\|^2 = 0
                 \)
             </p>
             
