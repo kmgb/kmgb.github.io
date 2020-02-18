@@ -40,6 +40,12 @@ nav {
     grid-column: 1;
 }
 
+nav > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 1rem 0;
+}
+
 main {
     background-color: #eee;
     grid-column: 2 / -1;
