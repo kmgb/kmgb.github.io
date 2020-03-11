@@ -1,3 +1,7 @@
+html {
+    margin-left: calc(100vw - 100%); /* Account for scrollbar nudge */
+}
+
 body {
     text-rendering: optimizeLegibility;
     background-color: #fff;
@@ -27,6 +31,10 @@ body {
     max-width: 1080px;
 
     height: 100vh;
+}
+
+.long-equation {
+    overflow-x: scroll;
 }
 
 header, footer, nav, main {
