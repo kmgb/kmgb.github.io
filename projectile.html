@@ -5,7 +5,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Projectile prediction math - votlu</title>
     <link href="style.css" rel="stylesheet" type="text/css">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -29,95 +28,97 @@
 </head>
 
 <body>
-    <header>
-        <h1>votlu</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projectile.html">Projectile prediction</a></li>
-            <li>Add more stuff here</li>
-        </ul>
-    </nav>
-    <main>
-        <article>
-            <h1>Projectile Prediction Math</h1>
-            <p>
-                This article tackles the problem of projectile prediction, as in, where one should aim a projectile if they want it to intercept with a moving target. The general idea is that if we are able to model the target's movement with a function of t, then we should be able to solve for a way to intercept its path with our own projectile. As with any math problem, we should start with some definitions:
-            </p>
+    <div class="layout-grid">
+        <header>
+            <h1>votlu</h1>
+        </header>
+        <nav>
             <ul>
-                <li>\(\vec{p}(t)\) is the position vector of the target relative to the shooter at time t.</li>
-                <li>\(\vec{b}(t)\) is the position vector of the projectile relative to the shooter at time t.</li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projectile.html">Projectile prediction</a></li>
+                <li>Add more stuff here</li>
             </ul>
-            <p>
-                Finding the form that \(\vec{p}(t)\) and \(\vec{b}(t)\) take is part of the challenge of setting up the problem. Factors such as initial position, gravity, velocity and any other source of acceleration must be included. Here are some common examples for target position:
-            </p>
-            <ul>
-                <li>Target standing still: \(\vec{p}(t) = \vec{p}(0)\)</li>
-                <li>Target moving in a line: \(\vec{p}(t) = \vec{p}(0) + \vec{v}t\)</li>
-                <li>Target with initial velocity and acceleration vector \(\vec{a}\): \(\vec{p}(t) = \vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2\)</li>
-            </ul>
+        </nav>
+        <main>
+            <article>
+                <h1>Projectile Prediction Math</h1>
+                <p>
+                    This article tackles the problem of projectile prediction, as in, where one should aim a projectile if they want it to intercept with a moving target. The general idea is that if we are able to model the target's movement with a function of t, then we should be able to solve for a way to intercept its path with our own projectile. As with any math problem, we should start with some definitions:
+                </p>
+                <ul>
+                    <li>\(\vec{p}(t)\) is the position vector of the target relative to the shooter at time t.</li>
+                    <li>\(\vec{b}(t)\) is the position vector of the projectile relative to the shooter at time t.</li>
+                </ul>
+                <p>
+                    Finding the form that \(\vec{p}(t)\) and \(\vec{b}(t)\) take is part of the challenge of setting up the problem. Factors such as initial position, gravity, velocity and any other source of acceleration must be included. Here are some common examples for target position:
+                </p>
+                <ul>
+                    <li>Target standing still: \(\vec{p}(t) = \vec{p}(0)\)</li>
+                    <li>Target moving in a line: \(\vec{p}(t) = \vec{p}(0) + \vec{v}t\)</li>
+                    <li>Target with initial velocity and acceleration vector \(\vec{a}\): \(\vec{p}(t) = \vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2\)</li>
+                </ul>
 
-            <p>
-                After we have the forms of \(\vec{p}(t)\) and \(\vec{b}(t)\), we can equate them.
-                <br>For this, I will be assuming the target is moving in a parabola (affected by gravity with initial velocity) and the projectile moves at a constant velocity from the origin.
-                <br>This will be the case that is demonstrated in the video at the end of the article.
-            </p>
+                <p>
+                    After we have the forms of \(\vec{p}(t)\) and \(\vec{b}(t)\), we can equate them.
+                    <br>For this, I will be assuming the target is moving in a parabola (affected by gravity with initial velocity) and the projectile moves at a constant velocity from the origin.
+                    <br>This will be the case that is demonstrated in the video at the end of the article.
+                </p>
 
-            <p>
-                \(\vec{p}(t) = \vec{b}(t)\)
-                <br>
-                \(\vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2 = \vec{r}t\), where \(\vec{a}\) is the gravitational constant pointed to the ground, and \(\vec{r}\) is the velocity of the projectile.
-                <br>
-                \(\vec{r} = \frac{\displaystyle \vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2)}{\displaystyle t}\)
-            </p>
+                <p>
+                    \(\vec{p}(t) = \vec{b}(t)\)
+                    <br>
+                    \(\vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2 = \vec{r}t\), where \(\vec{a}\) is the gravitational constant pointed to the ground, and \(\vec{r}\) is the velocity of the projectile.
+                    <br>
+                    \(\vec{r} = \frac{\displaystyle \vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2)}{\displaystyle t}\)
+                </p>
 
-            <p>
-                Now we have \(\vec{r}\) isolated, but we don't know what \(t\), the time of impact, is. We obviously can't find a solution in this form, but we have a trick that will make this possible to solve -- we can dot product both sides by themselves.
-                <br>
-                \(
-                \vec{r} \cdot \vec{r} = 
-                \frac{(
-                \displaystyle \vec{p}(0) \cdot \vec{p}(0)
-                + 2\vec{p}(0) \cdot \vec{v}t
-                + \vec{p}(0) \cdot \vec{a}t^2
-                + \vec{v} \cdot \vec{v}t^2
-                + \vec{v} \cdot \vec{a}t^3
-                + \frac{1}{4}\vec{a} \cdot \vec{a}t^4)
-                }{\displaystyle t^2}
-                \)
-                <br>
-                Rearranging, and grouping by power of t, we get
-                <br>
-                \(
-                \frac{1}{4}(\|\vec{a}\|^2)t^4
-                + (\vec{a} \cdot \vec{v})t^3
-                + (\vec{p}(0) \cdot \vec{a} + \|\vec{v}\|^2 - \|\vec{r}\|^2)t^2
-                + 2(\vec{p}(0) \cdot \vec{v})t
-                + \|\vec{p}(0)\|^2 = 0
-                \)
-            </p>
-            
-            <p>
-                So, we have a quartic equation whose roots are the times at which the projectile will hit the target. The roots are, of course, not necessarily real, which nicely highlights the fact that not all situations have a real(useful) solution that we can use. Such as a situation where the target is moving away from us faster than our projectile moves, making it impossible for us to ever hit it.
-            </p>
+                <p>
+                    Now we have \(\vec{r}\) isolated, but we don't know what \(t\), the time of impact, is. We obviously can't find a solution in this form, but we have a trick that will make this possible to solve -- we can dot product both sides by themselves.
+                    <br>
+                    \(
+                    \vec{r} \cdot \vec{r} = 
+                    \frac{(
+                    \displaystyle \vec{p}(0) \cdot \vec{p}(0)
+                    + 2\vec{p}(0) \cdot \vec{v}t
+                    + \vec{p}(0) \cdot \vec{a}t^2
+                    + \vec{v} \cdot \vec{v}t^2
+                    + \vec{v} \cdot \vec{a}t^3
+                    + \frac{1}{4}\vec{a} \cdot \vec{a}t^4)
+                    }{\displaystyle t^2}
+                    \)
+                    <br>
+                    Rearranging, and grouping by power of t, we get
+                    <br>
+                    \(
+                    \frac{1}{4}(\|\vec{a}\|^2)t^4
+                    + (\vec{a} \cdot \vec{v})t^3
+                    + (\vec{p}(0) \cdot \vec{a} + \|\vec{v}\|^2 - \|\vec{r}\|^2)t^2
+                    + 2(\vec{p}(0) \cdot \vec{v})t
+                    + \|\vec{p}(0)\|^2 = 0
+                    \)
+                </p>
+                
+                <p>
+                    So, we have a quartic equation whose roots are the times at which the projectile will hit the target. The roots are, of course, not necessarily real, which nicely highlights the fact that not all situations have a real(useful) solution that we can use. Such as a situation where the target is moving away from us faster than our projectile moves, making it impossible for us to ever hit it.
+                </p>
 
-            <p>
-                Taking our quartic coefficients, and using a quartic solver library, we can find the roots of the equation. Taking the real roots (if they exist), we can use our \(\vec{p}(t)\) function to find the position of the target at each time, which gives us the direction we must shoot in to hit our target.
-            </p>
+                <p>
+                    Taking our quartic coefficients, and using a quartic solver library, we can find the roots of the equation. Taking the real roots (if they exist), we can use our \(\vec{p}(t)\) function to find the position of the target at each time, which gives us the direction we must shoot in to hit our target.
+                </p>
 
-            <p>If you get it working correctly, it should look something like this:</p>
-            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6LjGSMx9xpI?mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <p>Note: the aimbot is doing corrections to make the projectile aim toward where the feet of the target should be.</p>
+                <p>If you get it working correctly, it should look something like this:</p>
+                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6LjGSMx9xpI?mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p>Note: the aimbot is doing corrections to make the projectile aim toward where the feet of the target should be.</p>
 
-            <p>
-                The process is very similar for all variations of the problem, so if you can understand the example, you can re-apply it to solve an arbitrarily difficult one.
-            </p>
+                <p>
+                    The process is very similar for all variations of the problem, so if you can understand the example, you can re-apply it to solve an arbitrarily difficult one.
+                </p>
 
-            <p>Other reading:<br>
-            - <a href="https://en.wikipedia.org/wiki/Monkey_and_hunter">Monkey and hunter (Wikipedia)</a></p>
-        </article>
-    </main>
-    <footer><em>Copyright © 2020 Kevin Brennan</em></footer>
+                <p>Other reading:<br>
+                - <a href="https://en.wikipedia.org/wiki/Monkey_and_hunter">Monkey and hunter (Wikipedia)</a></p>
+            </article>
+        </main>
+        <footer><em>Copyright © 2020 Kevin Brennan</em></footer>
+    </div>
 </body>
 </html>

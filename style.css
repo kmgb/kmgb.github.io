@@ -1,13 +1,4 @@
-html {
-    overflow-y: scroll; /* Prevent scrollbar disappearing/appearing */
-}
-
 body {
-    display: grid;
-    grid-template-columns: 250px auto;
-    margin: 0 auto;
-    max-width: 1080px;
-
     text-rendering: optimizeLegibility;
     background-color: #fff;
 
@@ -15,29 +6,52 @@ body {
     font-size: 16px;
     line-height: 1.5;
     color: #24292e;
+
+    margin: 0;
+    padding: 0;
+}
+
+.layout-grid {
+    display: grid;
+
+    grid-template-areas:
+        "header header"
+        "nav content"
+        "footer footer";
+
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+
+    margin: 0 auto; /* Center content beyond the max width */
+    padding: 0;
+    max-width: 1080px;
+
+    height: 100vh;
 }
 
 header, footer, nav, main {
     padding: 0 1rem;
+    margin: 0;
 }
 
 header, footer {
-    grid-column: 1 / -1; /* Span all columns */
     background-color: #ccc;
 }
 
 header {
+    grid-area: header;
     border-bottom: 2px solid #aaa;
 }
 
 footer {
+    grid-area: footer;
     border-top: 2px solid #aaa;
 }
 
 nav {
+    grid-area: nav;
     height: 100%;
     background-color: #ddd;
-    grid-column: 1;
 }
 
 nav > ul {
@@ -47,20 +61,26 @@ nav > ul {
 }
 
 main {
+    grid-area: content;
     background-color: #eee;
-    grid-column: 2 / -1;
 }
 
 @media all and (orientation: portrait) {
-    main {
-        grid-column: 1 / -1;
-    }
-
-    nav {
-        grid-column: 1 / -1;
-    }
-
-    body {
+    .layout-grid {
         margin: 0;
+        max-width: none;
+
+        grid-template-areas:
+            "header"
+            "nav"
+            "content"
+            "footer";
+
+        grid-template-columns: 1fr;
+        grid-template-rows:
+            auto    /* Header */
+            auto    /* Nav */
+            1fr     /* Content */
+            auto;   /* Footer */
     }
 }
