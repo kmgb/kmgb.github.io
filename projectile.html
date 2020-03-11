@@ -55,7 +55,7 @@
                 <ul>
                     <li>Target standing still: \(\vec{p}(t) = \vec{p}(0)\)</li>
                     <li>Target moving in a line: \(\vec{p}(t) = \vec{p}(0) + \vec{v}t\)</li>
-                    <li>Target with initial velocity and acceleration vector \(\vec{a}\): \(\vec{p}(t) = \vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2\)</li>
+                    <li>Target with initial velocity and acceleration: \(\vec{p}(t) = \vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2\)</li>
                 </ul>
 
                 <p>
@@ -69,33 +69,37 @@
                     <br>
                     \(\vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2 = \vec{r}t\), where \(\vec{a}\) is the gravitational constant pointed to the ground, and \(\vec{r}\) is the velocity of the projectile.
                     <br>
-                    \(\vec{r} = \frac{\displaystyle \vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2)}{\displaystyle t}\)
+                    \(\vec{r} = \frac{\displaystyle \vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2}{\displaystyle t}\)
                 </p>
 
                 <p>
                     Now we have \(\vec{r}\) isolated, but we don't know what \(t\), the time of impact, is. We obviously can't find a solution in this form, but we have a trick that will make this possible to solve -- we can dot product both sides by themselves.
                     <br>
-                    \(
-                    \vec{r} \cdot \vec{r} = 
-                    \frac{(
-                    \displaystyle \vec{p}(0) \cdot \vec{p}(0)
-                    + 2\vec{p}(0) \cdot \vec{v}t
-                    + \vec{p}(0) \cdot \vec{a}t^2
-                    + \vec{v} \cdot \vec{v}t^2
-                    + \vec{v} \cdot \vec{a}t^3
-                    + \frac{1}{4}\vec{a} \cdot \vec{a}t^4)
-                    }{\displaystyle t^2}
-                    \)
+                    <div class="long-equation">
+                        \(
+                        \vec{r} \cdot \vec{r} = 
+                        \frac{\displaystyle
+                        \vec{p}(0) \cdot \vec{p}(0)
+                        + 2\vec{p}(0) \cdot \vec{v}t
+                        + \vec{p}(0) \cdot \vec{a}t^2
+                        + \vec{v} \cdot \vec{v}t^2
+                        + \vec{v} \cdot \vec{a}t^3
+                        + \frac{1}{4}\vec{a} \cdot \vec{a}t^4
+                        }{\displaystyle t^2}
+                        \)
+                    </div>
                     <br>
                     Rearranging, and grouping by power of t, we get
                     <br>
-                    \(
-                    \frac{1}{4}(\|\vec{a}\|^2)t^4
-                    + (\vec{a} \cdot \vec{v})t^3
-                    + (\vec{p}(0) \cdot \vec{a} + \|\vec{v}\|^2 - \|\vec{r}\|^2)t^2
-                    + 2(\vec{p}(0) \cdot \vec{v})t
-                    + \|\vec{p}(0)\|^2 = 0
-                    \)
+                    <div class="long-equation">
+                        \(
+                        \frac{1}{4}\left(\|\vec{a}\|^2\right)t^4
+                        + \left(\vec{a} \cdot \vec{v}\right)t^3
+                        + \left(\vec{p}(0) \cdot \vec{a} + \|\vec{v}\|^2 - \|\vec{r}\|^2\right)t^2
+                        + 2\left(\vec{p}(0) \cdot \vec{v}\right)t
+                        + \|\vec{p}(0)\|^2 = 0
+                        \)
+                    </div>
                 </p>
                 
                 <p>
