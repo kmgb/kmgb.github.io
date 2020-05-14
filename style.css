@@ -1,5 +1,25 @@
-html {
-    margin-left: calc(100vw - 100%); /* Account for scrollbar nudge */
+:root {
+    --gray0: #f8f8f8;
+    --gray1: #eaeaea;
+    --gray2: #cfcfcf;
+    --gray3: #a6a6a6;
+    --gray4: #545454;
+    --gray5: #393939;
+    --gray6: #2b2b2b;
+}
+
+.light-theme {
+    --bg: var(--gray2);
+    --bg-nav: var(--gray1);
+    --bg-content: white;
+    --text: black;
+}
+
+.dark-theme {
+    --bg: var(--gray4);
+    --bg-nav: var(--gray5);
+    --bg-content: var(--gray6);
+    --text: white;
 }
 
 body {
@@ -9,18 +29,24 @@ body {
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
     font-size: 16px;
     line-height: 1.5;
-    color: #24292e;
+    color: var(--text);
+    background: var(--bg);
 
     margin: 0;
     padding: 0;
+}
+
+a {
+    color: currentColor;
+    text-decoration: underline;
 }
 
 .layout-grid {
     display: grid;
 
     grid-template-areas:
-        "header header"
-        "nav content"
+        "header nav"
+        "content content"
         "footer footer";
 
     grid-template-columns: auto 1fr;
@@ -30,53 +56,73 @@ body {
     padding: 0;
     max-width: 1080px;
 
+    /* Offset so that a scrollbar won't cause a jump in content */
+    position: relative;
+    right: calc((100% - 100vw)/2);
+
     height: 100vh;
 }
 
-.long-equation {
-    overflow-x: scroll;
-}
-
-header, footer, nav, main {
+header, footer, nav, article {
     padding: 0 1rem;
     margin: 0;
 }
 
 header, footer {
-    background-color: #ccc;
+    background-color: var(--bg-nav);
 }
 
 header {
     grid-area: header;
-    border-bottom: 2px solid #aaa;
+}
+
+.site-title {
+    font-size: 2.5em;
 }
 
 footer {
     grid-area: footer;
-    border-top: 2px solid #aaa;
 }
 
-nav {
+nav.site-nav {
     grid-area: nav;
+    background-color: var(--bg-nav);
     height: 100%;
-    background-color: #ddd;
+    padding: 0;
+    margin: 0;
 }
 
-nav > ul {
+nav.site-nav > ul {
     list-style-type: none;
     margin: 0;
-    padding: 1rem 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+}
+
+nav.site-nav > ul > li > a {
+    display: block;
+
+    text-decoration: none;
+    color: var(--text);
 }
 
 main {
     grid-area: content;
-    background-color: #eee;
+    background-color: var(--bg-content);
 }
 
 @media all and (orientation: portrait) {
     .layout-grid {
         margin: 0;
         max-width: none;
+
+        right: 0; /* Remove scrollbar fix */
 
         grid-template-areas:
             "header"
@@ -91,4 +137,9 @@ main {
             1fr     /* Content */
             auto;   /* Footer */
     }
+}
+
+.long-equation {
+    overflow-x: auto;
+    overflow-y: hidden;
 }
