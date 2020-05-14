@@ -7,6 +7,7 @@
     <link href="style.css" rel="stylesheet" type="text/css">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script defer src="site.js"></script>
 
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
@@ -30,20 +31,20 @@
 <body>
     <div class="layout-grid">
         <header>
-            <h1>votlu</h1>
+            <div class="site-title">votlu</div>
         </header>
-        <nav>
+        <nav class="site-nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="projectile.html">Projectile prediction</a></li>
-                <li>Add more stuff here</li>
+                <li><a href="#" id="themeButton">Toggle theme</a></li>
             </ul>
         </nav>
         <main>
             <article>
                 <h1>Projectile Prediction Math</h1>
                 <p>
-                    This article tackles the problem of projectile prediction, as in, where one should aim a projectile if they want it to intercept with a moving target. The general idea is that if we are able to model the target's movement with a function of t, then we should be able to solve for a way to intercept its path with our own projectile. As with any math problem, we should start with some definitions:
+                    This article tackles the problem of projectile prediction, as in, where one should aim a projectile if they want it to hit a moving target. The general idea is that if we are able to model the target's movement with a function of t, then we should be able to solve for a way to intercept its path with our own projectile's. Let's start with some definitions:
                 </p>
                 <ul>
                     <li>\(\vec{p}(t)\) is the position vector of the target relative to the shooter at time t.</li>
@@ -73,7 +74,7 @@
                 </p>
 
                 <p>
-                    Now we have \(\vec{r}\) isolated, but we don't know what \(t\), the time of impact, is. We obviously can't find a solution in this form, but we have a trick that will make this possible to solve -- we can dot product both sides by themselves.
+                    Now we have \(\vec{r}\) isolated, but we don't know what \(t\), the time of impact, is. We obviously can't find a solution in this form, but we have a trick that will make this possible to solve &mdash; we can dot product both sides by themselves.
                     <br>
                     <div class="long-equation">
                         \(

@@ -6,6 +6,7 @@
     <title>Home - votlu</title>
     <link href="style.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script defer src="site.js"></script>
 
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
@@ -29,19 +30,21 @@
 <body>
     <div class="layout-grid">
         <header>
-            <h1>votlu</h1>
+            <div class="site-title">votlu</div>
         </header>
-        <nav>
+        <nav class="site-nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="projectile.html">Projectile prediction</a></li>
-                <li>Add more stuff here</li>
+                <li><a href="#" id="themeButton">Toggle theme</a></li>
             </ul>
         </nav>
 
         <main>
             <article>
-                <h1>Nothing on the front page yet, but here's my article on <a href="projectile.html">Projectile Prediction</a></h1>
+                <h1>Enjoy your stay!</h1>
+                <p>Check the navigation bar for links to some of my work</p>
+                <p>Is this website is blinding you? Feel free to <a href="#" onclick="document.getElementById('themeButton').onclick()">toggle the theme</a> or <a target="_blank" href="https://darkreader.org/">use DarkReader</a>.</p>
             </article>
         </main>
 
