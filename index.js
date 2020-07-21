@@ -58,7 +58,7 @@ function processCommand(c) {
                 window.location.href = "./projectile.html";
                 break;
             case "text":
-                window.location.href = "./text.html";
+                window.location.href = "./text-dissect.html";
                 break;
             default:
                 promptOutput.textContent = "Page does not exist, use 'ls' for a list of pages";
