@@ -44,7 +44,7 @@ function processCommand(c) {
     } else if (c === "help") {
         promptOutput.textContent = "Commands: ls, help, goto <page>";
     } else if (c === "ls") {
-        promptOutput.textContent = "index, projectile";
+        promptOutput.textContent = "index, projectile, text";
     } else if (c === "goto") {
         promptOutput.textContent = "Usage: goto <page>";
     } else if (c.startsWith("goto ")) {
@@ -56,6 +56,9 @@ function processCommand(c) {
                 break;
             case "projectile":
                 window.location.href = "./projectile.html";
+                break;
+            case "text":
+                window.location.href = "./text.html";
                 break;
             default:
                 promptOutput.textContent = "Page does not exist, use 'ls' for a list of pages";
