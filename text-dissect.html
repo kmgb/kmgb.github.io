@@ -3,11 +3,11 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Home - votlu</title>
+    <title>Text Dissect - votlu</title>
     <link href="style.css" rel="stylesheet" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <script defer src="site.js"></script>
-    <script defer src="index.js"></script>
+    <script defer src="text-dissect.js"></script>
 
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
@@ -52,24 +52,79 @@
         </header>
 
         <main>
-            <!-- Special styles for centering vertically -->
-            <article style="display:grid;height:100%;">
-                <center style="margin: auto 0;">
-                    <h1 style="font-size: 1.5em;">Hi, I'm Kevin.</h1>
-                    <p>Welcome to my website, check out the links to my work in the navigation bar.</p>
-                    <p>This website is written from scratch in HTML5, and makes use of CSS Grid, if you're interested you can see the source <a href="https://github.com/votlu/votlu.github.io">here</a>.</p>
+            <article>
+                <h1>Text Dissect</h1>
+                <p>Type in the text box below to see the byte decomposition of the text.</p>
+                <textarea style="width: 100%;" id="dissection-text" placeholder=""></textarea><br>
+                <code>Dec: <span id="dissection-area-dec"></span></code><br>
+                <code>Hex: <span id="dissection-area-hex"></span></code>
 
-                    <!-- Bash prompt -->
-                    <code style="font-size: 2em; opacity: 0.2;">
-                        <span class="prompt-input" id="prompt-input" contenteditable="true" spellcheck="false" autocapitalize="off"></span>
-                    </code>
-                    <br>
-                    <code id="prompt-output">&nbsp;</code>
+                <br>
 
-                    <noscript>
-                        <p>Looks like you have JavaScript disabled, I can respect that, but the theme toggle and terminal won't work.</p>
-                    </noscript>
-                </center>
+                <h1>Interesting Unicode Codepoints</h1>
+                <table style="width: 100%">
+                    <tr style="font-weight: bold;">
+                        <td>Glyph (C&P-able)</td>
+                        <td>Code</td>
+                        <td>Name</td>
+                        <td>Description</td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text" value="&#xF8FF;" readonly></td>
+                        <td>U+F8FF</td>
+                        <td>Apple logo</td>
+                        <td>Only works on Apple devices</td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text" value="&#x202E;" readonly></td>
+                        <td>U+202E</td>
+                        <td>Right to left override</td>
+                        <td>Reverses the order of characters like so: 'gnp.exe' to &#x202E;'gnp.exe'</td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text" value="&Tab;" readonly></td>
+                        <td>U+0009</td>
+                        <td>Tabulation character</td>
+                        <td>Indents stuff, sometimes pasting the character has different results than typing</td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text" value="&#x200B;" readonly></td>
+                        <td>U+200B</td>
+                        <td>Zero-width space</td>
+                        <td>Used to separate words in languages with no explicit spacing</td>
+                    </tr>
+
+                    <tr>
+                        <td><input type="text" value="&#xFEFF;" readonly></td>
+                        <td>U+FEFF</td>
+                        <td>Zero-width non-breaking space</td>
+                        <td>Like above, but doesn't cause line-breaks</td>
+                    </tr>
+                </table>
+
+                <br>
+
+                <h1>Glyph Generator</h1>
+                <p>Enter a valid code point below and click Generate, the output will be displayed in the box to the right.</p>
+                <div style="display: flex;">
+                    U+
+                    <input id="custom-glyph-input">
+                    <button id="custom-glyph-button">Generate &rarr;</button>
+                    <input id="custom-glyph-output" readonly>
+                </div>
+
+                <br>
+
+                <h1>How to Copy the Glyphs</h1>
+                <ul>
+                    <li>Focus the input box of the codepoint you want</li>
+                    <li>Select all Ctrl-A or ⌘-A</li>
+                    <li>Copy Ctrl-C or ⌘-C</li>
+                </ul>
             </article>
         </main>
 
