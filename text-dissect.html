@@ -62,51 +62,51 @@
                 <br>
 
                 <h1>Interesting Unicode Codepoints</h1>
-                <table>
+                <table style="width: 100%; border-spacing: 0 1em;" >
                     <tr style="font-weight: bold;">
-                        <td>Glyph (C&P-able)</td>
+                        <td>Glyph</td>
                         <td>Code</td>
                         <td>Name</td>
                         <td>Description</td>
                     </tr>
 
                     <tr>
-                        <td><input type="text" value="&#xF8FF;" readonly></td>
+                        <td><input value="&#xF8FF;" type="text" size="5" readonly></td>
                         <td>U+F8FF</td>
                         <td>Apple logo</td>
                         <td>Only works on Apple devices</td>
                     </tr>
 
                     <tr>
-                        <td><input type="text" value="&#x202E;" readonly></td>
+                        <td><input value="&#x202E;" type="text" size="5" readonly></td>
                         <td>U+202E</td>
                         <td>Right-to-left override</td>
                         <td>Reverses the order of characters like so: 'gnp.exe' to &#x202E;'gnp.exe'</td>
                     </tr>
 
                     <tr>
-                        <td><input type="text" value="&#xFDFD;" readonly></td>
+                        <td><input value="&#xFDFD;" type="text" size="5" readonly></td>
                         <td>U+FDFD</td>
                         <td>Basmala</td>
                         <td>Islamic phrase, largest unicode character (font-dependent)</td>
                     </tr>
 
                     <tr>
-                        <td><input type="text" value="&Tab;" readonly></td>
+                        <td><input value="&Tab;" type="text" size="5" readonly></td>
                         <td>U+0009</td>
                         <td>Tabulation character</td>
                         <td>Indents stuff, sometimes pasting the character has different results than typing</td>
                     </tr>
 
                     <tr>
-                        <td><input type="text" value="&#x200B;" readonly></td>
+                        <td><input value="&#x200B;" type="text" size="5" readonly></td>
                         <td>U+200B</td>
                         <td>Zero-width space</td>
                         <td>Used to separate words in languages with no explicit spacing</td>
                     </tr>
 
                     <tr>
-                        <td><input type="text" value="&#xFEFF;" readonly></td>
+                        <td><input value="&#xFEFF;" type="text" size="5" readonly></td>
                         <td>U+FEFF</td>
                         <td>Zero-width non-breaking space</td>
                         <td>Like above, but doesn't cause line-breaks</td>
@@ -119,7 +119,7 @@
                 <p>Enter a valid code point below and click Generate, the output will be displayed in the box to the right.</p>
                 <div style="display: flex;">
                     U+
-                    <input id="custom-glyph-input">
+                    <input id="custom-glyph-input" size="6">
                     <button id="custom-glyph-button">Generate &rarr;</button>
                     <input id="custom-glyph-output" readonly>
                 </div>
