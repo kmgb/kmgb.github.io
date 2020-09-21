@@ -46,6 +46,13 @@ code {
     font-family: "Cascadia Mono", "Fira Mono", Consolas, monaco, monospace;
 }
 
+pre.cpp {
+    border-left: 1px solid currentColor;
+    padding: 0.5em 0 0.5em 1em;
+    background-color: rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
 /* Special stuff for index.html */
 @keyframes blinkingText {
     0%{visibility: visible;}
@@ -54,7 +61,7 @@ code {
     100%{visibility: hidden;}
 }
 
-.prompt-input {
+#prompt-input {
     /* Set the color to transparent so the text cursor doesn't appear */
     /* Also set the text-shadow to take the place of the text itself */
     color: transparent;
@@ -62,16 +69,20 @@ code {
     cursor: default;
 }
 
-.prompt-input:focus {
+#prompt-input:focus {
     /* Some browsers (Chromium) show outlines for it */
     outline: none;
 }
 
-.prompt-input::before {
+#prompt-input::before {
     content: '$ ';
 }
 
-.prompt-input::after {
+#prompt-input::after {
+    content: "\00a0"; /* No-break space */
+}
+
+#prompt-input:focus-within::after {
     content: '_';
     animation: blinkingText 1.1s infinite;
 }

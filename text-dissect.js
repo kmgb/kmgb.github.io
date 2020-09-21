@@ -13,9 +13,9 @@ const generatorOutput = document.getElementById('custom-glyph-output');
 generatorInput.value = '';
 generatorOutput.value = '';
 
-textArea.oninput = function() {
+textArea.oninput = function () {
     let text = textArea.value;
-    console.log("Dissecting text: "+text);
+    console.log("Dissecting text: " + text);
 
     var bytes = [];
     var bytesHex = [];
@@ -24,15 +24,15 @@ textArea.oninput = function() {
         var code = text.charCodeAt(i);
         var hex = (code >>> 0).toString(16).toUpperCase(); // to hex
 
-        bytes = bytes.concat([code]);
-        bytesHex = bytesHex.concat([hex]);
+        bytes.push(code);
+        bytesHex.push(hex);
     }
 
     dissectionAreaDec.textContent = bytes.join(', ');
     dissectionAreaHex.textContent = bytesHex.join(', ');
 }
 
-generatorButton.onclick = function() {
+generatorButton.onclick = function () {
     let codepoint = parseInt(generatorInput.value, 16);
 
     console.log(codepoint);
