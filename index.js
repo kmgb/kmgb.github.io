@@ -1,13 +1,14 @@
 "use strict";
 
-// Focus the prompt
+// Focus the prompt automatically so the user can type when loaded
+// Putting autofocus in the span could fix this, but autofocus isn't supported on non-inputs except on Chrome and isn't standard
 const promptInput = document.getElementById('prompt-input');
 promptInput.focus();
 
 const promptOutput = document.getElementById('prompt-output');
 
 // Handle keyboard input to ensure it behaves like a terminal
-promptInput.onkeydown = function(e) {
+promptInput.onkeydown = function (e) {
     if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
         return false;
     }
@@ -31,7 +32,7 @@ promptInput.onkeydown = function(e) {
 }
 
 // When focused, or when the user might change the caret location, reset contents
-promptInput.onfocus = promptInput.onmouseup = function(e) {
+promptInput.onfocus = promptInput.onmouseup = function (e) {
     promptInput.textContent = "";
 }
 
