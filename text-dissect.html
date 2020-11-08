@@ -29,7 +29,6 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 
-<!--Autoselect the bash prompt contenteditable div so that the user can type :D-->
 <body>
     <div class="layout-grid">
         <header>
@@ -55,10 +54,10 @@
         <main>
             <article>
                 <h1>Text Dissect</h1>
-                <p>Type in the text box below to see the byte decomposition of the text.</p>
+                <p>Type in the text box below to see the Unicode codepoint breakdown of the text.</p>
                 <textarea style="width: 100%;" id="dissection-text" placeholder=""></textarea><br>
-                <code>Dec: <span id="dissection-area-dec"></span></code><br>
-                <code>Hex: <span id="dissection-area-hex"></span></code>
+                <code>Codepoint: <span id="dissection-area"></span></code><br>
+                <!--code>Breakdown: <span id="dissection-area-breakdown"></span></code-->
 
                 <h1>Interesting Unicode Codepoints</h1>
                 <table style="width: 100%; border-spacing: 0 1em;" >
@@ -113,7 +112,7 @@
                 </table>
 
                 <h1>Glyph Generator</h1>
-                <p>Enter a valid code point below and click Generate, the output will be displayed in the box to the right.</p>
+                <p>Enter a valid codepoint below and click Generate, the output will be displayed in the box to the right.</p>
                 <div style="display: flex;">
                     U+
                     <input id="custom-glyph-input" size="6">
@@ -131,7 +130,8 @@
                 <h1>Using a Script to Enter Unicode</h1>
                 <p>An easy method to enter special characters is by using an AutoHotkey script. You can use the Send command with codepoint literals like so:</p>
                 <code>CapsLock &  \::Send {U+0300}</code>
-                <p>The above allows you to use caps-lock+backslash as a hotkey to send a combining grave accent (attaches to the previous character). I use a series of hotkeys to more easily type accents without having to switch keyboard layouts.</p>
+                <p>The above allows you to use caps-lock+backslash as a hotkey to send a combining grave accent (attaches to the previous character).</p>
+                <p> I use a series of hotkeys to more easily type accents and symbols, you can check that out <a href="https://github.com/kmgb/character-input-ahk">here</a>.</p>
             </article>
         </main>
 
