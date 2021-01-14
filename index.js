@@ -43,12 +43,12 @@ function processCommand(c) {
     if (c === "") {
         // Recognize command so it's not unknown
     } else if (c === "help") {
-        promptOutput.textContent = "Valid commands: ls, help, goto <page>";
+        promptOutput.textContent = "Valid commands: ls, help, cd <page>";
     } else if (c === "ls") {
         promptOutput.textContent = "index, projectile, text";
-    } else if (c === "goto") {
-        promptOutput.textContent = "Usage: goto <page>";
-    } else if (c.startsWith("goto ")) {
+    } else if (c === "cd") {
+        promptOutput.textContent = "Usage: cd <page>";
+    } else if (c.startsWith("cd ")) {
         let page = c.substring(5).trim();
 
         switch (page) {
