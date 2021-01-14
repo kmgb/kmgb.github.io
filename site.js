@@ -3,9 +3,9 @@
 const body = document.body;
 
 // Default to dark theme
-const theme = localStorage.getItem('theme');
+let theme = localStorage.getItem('theme');
 if (!['dark-theme', 'light-theme'].includes(theme)) {
-    theme = 'dark-theme';
+    theme = 'dark-theme'
     localStorage.setItem('theme', theme);
 }
 body.classList.add(theme);
