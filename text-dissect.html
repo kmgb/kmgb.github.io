@@ -43,9 +43,8 @@
 
                 <nav class="site-nav">
                     <ul>
-                        <li><a href="projectile.html">Projectile prediction</a></li>
-                        <li><a href="text-dissect.html">Text dissect</a></li>
-                        <li><a href="#" id="themeButton">Toggle theme</a></li>
+                        <li><a href="projectile">Projectile prediction</a></li>
+                        <li><a href="text-dissect">Text dissect</a></li>
                     </ul>
                 </nav>
             </div>
@@ -69,13 +68,6 @@
                     </tr>
 
                     <tr>
-                        <td><input value="&#xF8FF;" type="text" size="5" readonly></td>
-                        <td>U+F8FF</td>
-                        <td>Apple logo</td>
-                        <td>Only works on Apple devices</td>
-                    </tr>
-
-                    <tr>
                         <td><input value="&#x202E;" type="text" size="5" readonly></td>
                         <td>U+202E</td>
                         <td>Right-to-left override</td>
@@ -90,10 +82,10 @@
                     </tr>
 
                     <tr>
-                        <td><input value="&Tab;" type="text" size="5" readonly></td>
-                        <td>U+0009</td>
-                        <td>Tabulation character</td>
-                        <td>Indents stuff, sometimes pasting the character has different results than typing</td>
+                        <td><input value="&#x200D" type="text" size="5" readonly></td>
+                        <td>U+200D</td>
+                        <td>Zero width joiner</td>
+                        <td>Joins two or more characters in a sequence to make a new emoji. Man + ZWJ + White hair = 👨‍🦳</td>
                     </tr>
 
                     <tr>
@@ -106,8 +98,8 @@
                     <tr>
                         <td><input value="&#xFEFF;" type="text" size="5" readonly></td>
                         <td>U+FEFF</td>
-                        <td>Zero-width non-breaking space</td>
-                        <td>Like above, but doesn't cause line-breaks</td>
+                        <td>Zero-width non-breaking space; Byte order mark</td>
+                        <td>Like above, but doesn't cause line-breaks. Deprecated, U+2060 should be used instead since it cannot be confused for byte order mark</td>
                     </tr>
                 </table>
 
@@ -132,10 +124,20 @@
                 <code>CapsLock &  \::Send {U+0300}</code>
                 <p>The above allows you to use caps-lock+backslash as a hotkey to send a combining grave accent (attaches to the previous character).</p>
                 <p> I use a series of hotkeys to more easily type accents and symbols, you can check that out <a href="https://github.com/kmgb/character-input-ahk">here</a>.</p>
+
+                <h2>See also:</h2>
+                <ul>
+                    <li><a href="https://www.babelstone.co.uk/Unicode/babelmap.html">BabelMap Unicode Lookup</a></li>
+                </ul>
             </article>
         </main>
 
-        <footer><div class="footer-inner">© 2020 Kevin Brennan</div></footer>
+        <footer>
+            <div class="footer-inner">
+                <span class="footer-left">© 2020 Kevin Brennan</span>
+                <span class="footer-right"><a href="#" id="theme-button">Toggle theme</a></span>
+            </div>
+        </footer>
     </div>
 </body>
 </html>

@@ -2,19 +2,22 @@
 
 const body = document.body;
 
-const theme = localStorage.getItem('theme') || "light-theme";
+// Default to dark theme
+const theme = localStorage.getItem('theme');
+if (!['dark-theme', 'light-theme'].includes(theme)) {
+    theme = 'dark-theme';
+    localStorage.setItem('theme', theme);
+}
 body.classList.add(theme);
 
-const themeButton = document.getElementById('themeButton');
+const themeButton = document.getElementById('theme-button');
 
-themeButton.onclick = function() {
-    if (body.classList.contains('light-theme'))
-    {
+themeButton.onclick = function () {
+    if (body.classList.contains('light-theme')) {
         body.classList.replace('light-theme', 'dark-theme');
         localStorage.setItem('theme', 'dark-theme');
     }
-    else
-    {
+    else {
         body.classList.replace('dark-theme', 'light-theme');
         localStorage.setItem('theme', 'light-theme');
     }

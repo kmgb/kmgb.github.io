@@ -8,6 +8,14 @@
     --gray6: #2b2b2b;
 
     --page-maxwidth: 1080px;
+
+    --code-font: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+
+    /* Default dark theme */
+    --bg: var(--gray4);
+    --bg-nav: var(--gray6);
+    --bg-content: var(--gray5);
+    --text: var(--gray1);
 }
 
 .light-theme {
@@ -15,13 +23,6 @@
     --bg-nav: var(--gray1);
     --bg-content: white;
     --text: black;
-}
-
-.dark-theme {
-    --bg: var(--gray4);
-    --bg-nav: var(--gray6);
-    --bg-content: var(--gray5);
-    --text: var(--gray1);
 }
 
 body {
@@ -43,7 +44,7 @@ a {
 }
 
 code {
-    font-family: "Cascadia Mono", "Fira Mono", Consolas, monaco, monospace;
+    font-family: var(--code-font);
 }
 
 pre.cpp {
@@ -54,6 +55,27 @@ pre.cpp {
 }
 
 /* Special stuff for index.html */
+.real-name-title {
+    font-weight: bold;
+    font-family: var(--code-font);
+    font-size: 4rem;
+    margin: 0 0 1rem 0;
+}
+
+ul.skills-list {
+    display: inline-block;
+    text-align: left;
+    margin: 0;
+}
+
+.social-layout {
+    margin: 1rem;
+}
+
+.social-layout > *:not(:first-child) {
+    margin-left: 0.5rem;
+}
+
 @keyframes blinkingText {
     0%{visibility: visible;}
     49%{visibility: visible;}
@@ -163,6 +185,14 @@ footer {
     height: 100%;
     max-width: var(--page-maxwidth);
     margin: 0 auto;
+}
+
+.footer-left {
+    float: left;
+}
+
+.footer-right {
+    float: right;
 }
 
 nav.site-nav {

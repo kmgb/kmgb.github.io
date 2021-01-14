@@ -43,7 +43,7 @@ function processCommand(c) {
     if (c === "") {
         // Recognize command so it's not unknown
     } else if (c === "help") {
-        promptOutput.textContent = "Commands: ls, help, goto <page>";
+        promptOutput.textContent = "Valid commands: ls, help, goto <page>";
     } else if (c === "ls") {
         promptOutput.textContent = "index, projectile, text";
     } else if (c === "goto") {
@@ -56,10 +56,10 @@ function processCommand(c) {
                 window.location.href = "./";
                 break;
             case "projectile":
-                window.location.href = "./projectile.html";
+                window.location.href = "./projectile";
                 break;
             case "text":
-                window.location.href = "./text-dissect.html";
+                window.location.href = "./text-dissect";
                 break;
             default:
                 promptOutput.textContent = "Page does not exist, use 'ls' for a list of pages";
