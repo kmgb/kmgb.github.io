@@ -45,15 +45,18 @@ function processCommand(c) {
     } else if (c === "help") {
         promptOutput.textContent = "Valid commands: ls, help, cd <page>";
     } else if (c === "ls") {
-        promptOutput.textContent = "index, projectile, text";
+        promptOutput.textContent = "., .., projectile, text";
     } else if (c === "cd") {
         promptOutput.textContent = "Usage: cd <page>";
     } else if (c.startsWith("cd ")) {
-        let page = c.substring(5).trim();
+        let page = c.substring(3).trim();
 
         switch (page) {
-            case "index":
+            case ".":
                 window.location.href = "./";
+                break;
+            case "..":
+                window.location.href = "https://github.com/kmgb/kmgb.github.io";
                 break;
             case "projectile":
                 window.location.href = "./projectile";
