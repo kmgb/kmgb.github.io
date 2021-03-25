@@ -84,10 +84,7 @@ ul.skills-list {
 }
 
 #prompt-input {
-    /* Set the color to transparent so the text cursor doesn't appear */
-    /* Also set the text-shadow to take the place of the text itself */
-    color: transparent;
-    text-shadow: 0 0 0 var(--text);
+    caret-color: transparent;
     cursor: default;
 }
 
