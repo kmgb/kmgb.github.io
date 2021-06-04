@@ -59,7 +59,7 @@ function breakdownCodes(codes) {
     return breakdown;
 }
 
-generatorButton.onclick = function () {
+function generateChar() {
     let codepoint = parseInt(generatorInput.value, 16);
 
     let value = 'Error';
@@ -79,3 +79,11 @@ generatorButton.onclick = function () {
 
     generatorOutput.value = value;
 }
+
+generatorInput.onkeypress = function(e) {
+    if (e.key === "Enter") {
+        generateChar();
+    }
+}
+
+generatorButton.onclick = generateChar;
