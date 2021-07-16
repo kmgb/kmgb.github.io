@@ -58,7 +58,7 @@ pre.cpp {
 .real-name-title {
     font-weight: bold;
     font-family: var(--code-font);
-    font-size: 4rem;
+    font-size: 3rem;
     margin: 0 0 1rem 0;
 }
 
@@ -193,11 +193,13 @@ footer {
 }
 
 nav.site-nav {
-    background-color: var(--bg-nav);
     height: 100%;
+    width: 100%;
     padding: 0;
     margin: 0;
-    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    justify-content: flex-end; /* Align list content to the right */
 }
 
 nav.site-nav > ul {
@@ -207,10 +209,10 @@ nav.site-nav > ul {
 
     display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
-    justify-content: flex-end;
-    height: 100%;
-    width: 100%;
+    overflow-x: auto; /* Allow horizontal scrolling of nav content */
+    overflow-y: hidden;
 }
 
 nav.site-nav > ul > li > a {
