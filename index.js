@@ -22,8 +22,10 @@ promptInput.addEventListener('keydown', function (e) {
 });
 
 promptInput.addEventListener('beforeinput', function (e) {
-    // data is null when deleting, so ignore in that case
-    if (e.data && promptInput.textContent.length >= maxCmdLength) {
+    // Allow elementary actions like adding text (if there's space) and deleting,
+    // but prevent pasting or drag and drop because we would have to correctly
+    // slice the added content to match maxCmdLength otherwise, which gets complicated
+    if ((e.data && promptInput.textContent.length >= maxCmdLength) || e.dataTransfer) {
         e.preventDefault();
     }
 });
