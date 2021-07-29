@@ -7,32 +7,32 @@ promptInput.focus();
 
 const promptOutput = document.getElementById('prompt-output');
 
+const maxCmdLength = 32;
+
 // Handle keyboard input to ensure it behaves like a terminal
-promptInput.onkeydown = function (e) {
+promptInput.addEventListener('keydown', function (e) {
     if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
-        return false;
+        e.preventDefault();
     }
-
-    if (e.key === "Enter") {
-        // Add a previous span to emulate a new terminal line
-        // const p = promptInput.parentElement;
-
-        // let newspan = document.createElement("span");
-        // newspan.textContent = "$ "+promptInput.textContent;
-        // p.insertBefore(newspan, promptInput);
-
-        // p.insertBefore(document.createElement("br"), promptInput);
-
+    else if (e.key === "Enter") {
         processCommand(promptInput.textContent);
-
         promptInput.textContent = "";
-
-        return false;
+        e.preventDefault();
     }
-}
+});
+
+promptInput.addEventListener('beforeinput', function (e) {
+    // data is null when deleting, so ignore in that case
+    if (e.data && promptInput.textContent.length >= maxCmdLength) {
+        e.preventDefault();
+    }
+});
 
 // When focused, or when the user might change the caret location, reset contents
-promptInput.onfocus = promptInput.onmouseup = function (e) {
+promptInput.addEventListener('focus', clearPromptInput);
+promptInput.addEventListener('mouseup', clearPromptInput);
+
+function clearPromptInput() {
     promptInput.textContent = "";
 }
 
