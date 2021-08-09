@@ -8,6 +8,7 @@ promptInput.focus();
 const promptOutput = document.getElementById('prompt-output');
 
 const maxCmdLength = 32;
+const validCmds = "ls, help, cd <page>";
 
 // Handle keyboard input to ensure it behaves like a terminal
 promptInput.addEventListener('keydown', function (e) {
@@ -45,9 +46,9 @@ function processCommand(c) {
     if (c === "") {
         // Recognize command so it's not unknown
     } else if (c === "help") {
-        promptOutput.textContent = "Valid commands: ls, help, cd <page>";
+        promptOutput.textContent = "Valid commands: "+validCmds;
     } else if (c === "ls") {
-        promptOutput.textContent = "., .., projectile, text";
+        promptOutput.textContent = "., .., resume, projectile, text";
     } else if (c === "cd") {
         promptOutput.textContent = "Usage: cd <page>";
     } else if (c.startsWith("cd ")) {
@@ -66,11 +67,14 @@ function processCommand(c) {
             case "text":
                 window.location.href = "./text-dissect";
                 break;
+            case "resume":
+                window.location.href = "./Resume - Kevin Brennan.pdf";
+                break;
             default:
                 promptOutput.textContent = "Page does not exist, use 'ls' for a list of pages";
                 break;
         }
     } else {
-        promptOutput.textContent = "Unknown command, use 'help' for a list of commands";
+        promptOutput.textContent = "Unknown command, try: "+validCmds;
     }
 }
