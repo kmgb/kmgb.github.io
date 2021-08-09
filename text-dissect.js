@@ -17,7 +17,7 @@ function toHex(i) {
     return (i >>> 0).toString(16).toUpperCase();
 }
 
-textArea.oninput = function () {
+textArea.addEventListener('input', function () {
     let text = textArea.value;
     let codes = [];
     let codepoints = [];
@@ -36,7 +36,7 @@ textArea.oninput = function () {
 
     dissectionArea.textContent = codepoints.join(', ');
     //dissectionAreaBreakdown.textContent = breakdownCodes(codes);
-}
+});
 
 function breakdownCodes(codes) {
     let breakdown = "";
@@ -66,7 +66,7 @@ function generateChar() {
 
     if (codepoint >= 0xD800 && codepoint <= 0xDFFF) {
         alert('Cannot generate lone High-Surrogate or Low-Surrogate characters, as Javascript does not allow it.'
-            +'\nYou can use an AutoHotkey to input them as described at the bottom of this page.');
+            +'\nYou can use an AutoHotkey script to input them as described at the bottom of this page.');
 
         value = 'Surrogate character';
     }
@@ -80,10 +80,10 @@ function generateChar() {
     generatorOutput.value = value;
 }
 
-generatorInput.onkeypress = function(e) {
+generatorInput.addEventListener('keypress', function(e) {
     if (e.key === "Enter") {
         generateChar();
     }
-}
+});
 
 generatorButton.onclick = generateChar;
