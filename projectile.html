@@ -10,6 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="site.js"></script>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+
+    <!--Auto-generated favicon variants-->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -58,8 +63,8 @@
                     This article tackles the problem of projectile prediction, as in, where one should aim a projectile if they want it to hit a moving target. The general idea is that if we are able to model the target's movement with a function of t, then we should be able to solve for a way to intercept its path with our own projectile's. Let's start with some definitions:
                 </p>
                 <ul>
-                    <li>\(\vec{p}(t)\) is the position vector of the target relative to the shooter at time t.</li>
-                    <li>\(\vec{b}(t)\) is the position vector of the projectile relative to the shooter at time t.</li>
+                    <li>\(\vec{p}(t)\) is the position vector of the target relative to the shooter at time \(t\).</li>
+                    <li>\(\vec{b}(t)\) is the position vector of the projectile relative to the shooter at time \(t\).</li>
                 </ul>
                 <p>
                     Finding the form that \(\vec{p}(t)\) and \(\vec{b}(t)\) take is part of the challenge of setting up the problem. Factors such as initial position, gravity, velocity and any other source of acceleration must be included. Here are some common examples for target position:

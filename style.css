@@ -10,6 +10,8 @@
     --page-maxwidth: 1080px;
 
     --code-font: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+    --serif-font: 'Roboto Slab', serif;
+    --sans-font: 'Roboto',-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
 
     /* Default dark theme */
     --bg: var(--gray4);
@@ -28,7 +30,7 @@
 body {
     text-rendering: optimizeLegibility;
 
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    font-family: var(--sans-font);
     font-size: 16px;
     line-height: 1.5;
     color: var(--text);
@@ -56,9 +58,8 @@ pre.cpp {
 
 /* Special stuff for index.html */
 .real-name-title {
-    font-weight: bold;
-    font-family: var(--code-font);
-    font-size: 3rem;
+    font-family: var(--serif-font);
+    font-size: 3.5rem;
     margin: 0 0 1rem 0;
 }
 
