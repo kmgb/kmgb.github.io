@@ -61,6 +61,8 @@ pre.cpp {
     font-family: var(--serif-font);
     font-size: 3.5rem;
     margin: 0 0 1rem 0;
+    font-weight: normal;
+    line-height: normal;
 }
 
 ul.skills-list {
