@@ -58,11 +58,14 @@ pre.cpp {
 
 /* Special stuff for index.html */
 .real-name-title {
-    font-family: var(--serif-font);
     font-size: 3.5rem;
     margin: 0 0 1rem 0;
     font-weight: normal;
     line-height: normal;
+}
+
+h1, h2, h3 {
+    font-family: var(--serif-font);
 }
 
 ul.skills-list {
