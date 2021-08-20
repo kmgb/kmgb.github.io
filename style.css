@@ -66,6 +66,7 @@ pre.cpp {
 
 h1, h2, h3 {
     font-family: var(--serif-font);
+    font-weight: normal;
 }
 
 ul.skills-list {
