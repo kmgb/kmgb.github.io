@@ -45,6 +45,10 @@ a {
     text-decoration: underline;
 }
 
+abbr {
+    font-style: italic;
+}
+
 code {
     font-family: var(--code-font);
 }
@@ -54,6 +58,10 @@ pre.cpp {
     padding: 0.5em 0 0.5em 1em;
     background-color: rgba(0, 0, 0, 0.1);
     overflow-x: auto;
+}
+
+kbd {
+    font-family: var(--code-font);
 }
 
 /* Special stuff for index.html */
