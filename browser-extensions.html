@@ -3,10 +3,9 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Projectile prediction math - kmgb</title>
-    <meta name="description" content="The math behind projectile prediction. Using initial conditions to determine launch angle.">
+    <title>Browser Extensions</title>
+    <meta name="description" content="Kevin Brennan's personal website.">
     <link href="style.css" rel="stylesheet" type="text/css">
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="site.js"></script>
 
@@ -14,7 +13,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@400&display=swap" rel="stylesheet">
 
-    <!--Auto-generated favicon variants-->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -59,91 +57,19 @@
 
         <main>
             <article>
-                <h1>Projectile Prediction Math</h1>
-                <p>
-                    This article tackles the problem of projectile prediction, as in, where one should aim a projectile if they want it to hit a moving target. The general idea is that if we are able to model the target's movement with a function of \(t\), then we should be able to solve for a way to intercept its path with our own projectile's. Let's start with some definitions:
-                </p>
-                <ul>
-                    <li>\(\vec{p}(t)\) is the position vector of the target relative to the shooter at time \(t\).</li>
-                    <li>\(\vec{b}(t)\) is the position vector of the projectile relative to the shooter at time \(t\).</li>
-                </ul>
-                <p>
-                    Finding the form that \(\vec{p}(t)\) and \(\vec{b}(t)\) take is part of the challenge of setting up the problem. Factors such as initial position, gravity, velocity and any other source of acceleration must be included. Here are some common examples for target position:
-                </p>
-                <ul>
-                    <li>Target standing still: \(\vec{p}(t) = \vec{p}(0)\)</li>
-                    <li>Target moving in a line: \(\vec{p}(t) = \vec{p}(0) + \vec{v}t\)</li>
-                    <li>Target with initial velocity and acceleration: <div class="long-equation">\(\vec{p}(t) = \vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2\)</div></li>
-                </ul>
+                <h1>Web Browser Extensions</h1>
+                <p>I have developed the following browser extensions for chromium-based browsers. They are not available on the Chrome Web Store, but you can still install them by loading them as unpacked extensions.</p>
+                <p>I was inspired to develop this because of Microsoft Edge (Chromium)'s horrible new tab page performance on startup, as well as Brave's inflexible and ugly new tab page (imho).</p>
 
-                <p>
-                    After we have the forms of \(\vec{p}(t)\) and \(\vec{b}(t)\), we can equate them.
-                    <br>For this, I will be assuming the target is moving in a parabola (affected by gravity with initial velocity) and the projectile moves at a constant velocity from the origin.
-                    <br>This will be the case that is demonstrated in the video at the end of the article.
-                </p>
+                <h2><a href="https://github.com/kmgb/new-tab-html">New Tab HTML (GitHub)</a></h2>
+                <p>Allows for your own custom HTML to be used as your browser's new tab page, overriding it. Example code is provided for website links, but any valid HTML is possible.</p>
 
-                <p>
-                    \(\vec{p}(t) = \vec{b}(t)\)
-                    <br>
-                    \(\vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2 = \vec{r}t\), where \(\vec{a}\) is the gravitational constant pointed to the ground, and \(\vec{r}\) is the velocity of the projectile.
-                    <br>
-                    \(\vec{r} = \frac{\displaystyle \vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2}{\displaystyle t}\)
-                </p>
-
-                <p>
-                    Now we have \(\vec{r}\) isolated, but we don't know what \(t\), the time of impact, is. We obviously can't find a solution in this form, but we have a trick that will make this possible to solve &mdash; we can dot product both sides by themselves.
-                    <br>
-                    <div class="long-equation">
-                        \(
-                        \vec{r} \cdot \vec{r} =
-                        \frac{\displaystyle
-                        \vec{p}(0) \cdot \vec{p}(0)
-                        + 2\vec{p}(0) \cdot \vec{v}t
-                        + \vec{p}(0) \cdot \vec{a}t^2
-                        + \vec{v} \cdot \vec{v}t^2
-                        + \vec{v} \cdot \vec{a}t^3
-                        + \frac{1}{4}\vec{a} \cdot \vec{a}t^4
-                        }{\displaystyle t^2}
-                        \)
-                    </div>
-                    <br>
-                    Rearranging, and grouping by power of t, we get
-                    <br>
-                    <div class="long-equation">
-                        \(
-                        \frac{1}{4}\left(\|\vec{a}\|^2\right)t^4
-                        + \left(\vec{a} \cdot \vec{v}\right)t^3
-                        + \left(\vec{p}(0) \cdot \vec{a} + \|\vec{v}\|^2 - \|\vec{r}\|^2\right)t^2
-                        + 2\left(\vec{p}(0) \cdot \vec{v}\right)t
-                        + \|\vec{p}(0)\|^2 = 0
-                        \)
-                    </div>
-                </p>
-
-                <p>
-                    So, we have a quartic equation whose roots are the times at which the projectile will hit the target. The roots are, of course, not necessarily real, which nicely highlights the fact that not all situations have a real(useful) solution that we can use. Such as a situation where the target is moving away from us faster than our projectile moves, making it impossible for us to ever hit it.
-                </p>
-
-                <p>
-                    Taking our quartic coefficients, and using a quartic solver library, we can find the roots of the equation. Taking the real roots (if they exist), we can use our \(\vec{p}(t)\) function to find the position of the target at each time, which gives us the direction we must shoot in to hit our target.
-                </p>
-
-                <p>If you get it working correctly, it should look something like this:</p>
-                <div class="videoWrapper">
-                    <iframe title="YouTube video demonstrating projectile prediction" width="560" height="315" src="https://www.youtube-nocookie.com/embed/6LjGSMx9xpI?mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <p>Note: the aimbot is doing corrections to make the projectile aim toward where the feet of the target should be.</p>
-
-                <p>
-                    The process is very similar for all variations of the problem, so if you can understand the example, you can re-apply it to solve an arbitrarily difficult one.
-                </p>
-
-                <h2>Further reading:</h2>
-                <ul>
-                    <li><a href="https://en.wikipedia.org/wiki/Monkey_and_hunter">Monkey and hunter (Wikipedia)</a></li>
-                </ul>
+                <h2><a href="https://github.com/kmgb/skiprope">Skiprope (GitHub)</a></h2>
+                <p>Register address bar keywords to use as webpage shortcuts. Useful for accessing complicated URLs with an easy-to-remember name, and without having to find it in your bookmarks. For example, standup zoom links: searching <code>'! standup'</code> can send you to https://zoom.us/j/XYZABC.</p>
+                <p>Developed as a response to an <abbr title="Jumprope">extension of similar name</abbr> that forwards all search queries to its own server to perform a similar function, but is likely selling its user's search history.</p>
             </article>
         </main>
+
         <footer>
             <div class="footer-inner">
                 <span class="footer-left">© 2020 Kevin Brennan</span>
