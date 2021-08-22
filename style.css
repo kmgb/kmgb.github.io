@@ -45,8 +45,20 @@ a {
     text-decoration: underline;
 }
 
-abbr {
-    font-style: italic;
+abbr[title] {
+    text-decoration: underline dotted;
+    position: relative; /* Allow ::after to position itself relative to this size */
+}
+
+abbr[title]:hover::after,
+abbr[title]:focus::after {
+    content: attr(title);
+    position: absolute;
+    background-color: var(--bg-nav);
+    border: 1px solid var(--text);
+    padding: 0 0.2em;
+    left: 0;
+    top: 100%;
 }
 
 code {
