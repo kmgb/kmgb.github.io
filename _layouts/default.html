@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    {% include head.html %}
+
+<body>
+    <div class="layout-grid">
+        {% include header.html %}
+
+        {{ page.content }}
+
+        <footer>
+            <div class="footer-inner">
+                <span class="footer-left">© 2020 Kevin Brennan</span>
+                <span class="footer-right"><a href="#" id="theme-button">Toggle theme</a></span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
