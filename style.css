@@ -44,6 +44,8 @@
     --bg-nav: var(--gray6);
     --bg-content: var(--gray5);
     --text: var(--gray1);
+
+    --scrollbar-gutter-width: 0px;
 }
 
 .light-theme {
@@ -176,6 +178,8 @@ ul.skills-list {
     padding: 0;
     height: 100vh;
     overflow-x: hidden;
+
+    --scrollbar-gutter-width: calc(100vw - 100%)
 }
 
 article {
@@ -188,13 +192,21 @@ header {
     grid-area: header;
 
     height: 3em;
-    padding: 0.5em 1em;
     max-width: 100%;
 }
 
 header, footer {
     background-color: var(--bg-nav);
     padding: 0.5em 1em;
+}
+
+/* --page-maxwidth */
+/* Content jumping because of the scrollbar is only an issue when
+   page contents are larger than the page-maxwidth */
+@media screen and (min-width: 1080px) {
+    header, footer {
+        padding-left: min(1em, var(--scrollbar-gutter-width));
+    }
 }
 
 .header-inner {
