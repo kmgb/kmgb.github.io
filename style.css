@@ -30,8 +30,8 @@
     --gray2: #cfcfcf;
     --gray3: #a6a6a6;
     --gray4: #545454;
-    --gray5: #393939;
-    --gray6: #2b2b2b;
+    --gray5: #292a2c;
+    --gray6: #242526;
 
     --page-maxwidth: 1080px;
 
@@ -40,7 +40,7 @@
     --sans-font: 'Roboto',-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
 
     /* Default dark theme */
-    --bg: var(--gray4);
+    color-scheme: dark;
     --bg-nav: var(--gray6);
     --bg-content: var(--gray5);
     --text: var(--gray1);
@@ -49,10 +49,10 @@
 }
 
 .light-theme {
-    --bg: var(--gray2);
-    --bg-nav: var(--gray1);
-    --bg-content: white;
-    --text: black;
+    color-scheme: light;
+    --bg-nav: var(--gray0);
+    --bg-content: var(--gray1);
+    --text: var(--gray6);
 }
 
 body {
@@ -62,7 +62,7 @@ body {
     font-size: 16px;
     line-height: 1.5;
     color: var(--text);
-    background: var(--bg);
+    background: var(--bg-content);
 
     margin: 0;
     padding: 0;
