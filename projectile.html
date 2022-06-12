@@ -7,8 +7,11 @@
     <meta name="description" content="The math behind projectile prediction. Using initial conditions to determine launch angle.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet" type="text/css">
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script defer src="site.js"></script>
+
+    <link rel="stylesheet" href="katex/katex.min.css">
+    <script defer src="katex/katex.min.js"></script>
+    <script defer src="katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
     <link rel="icon" type="image/png" href="/images/favicon.png">
@@ -53,7 +56,7 @@
                 <ul>
                     <li>Target standing still: \(\vec{p}(t) = \vec{p}(0)\)</li>
                     <li>Target moving in a line: \(\vec{p}(t) = \vec{p}(0) + \vec{v}t\)</li>
-                    <li>Target with initial velocity and acceleration: <div class="long-equation">\(\vec{p}(t) = \vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2\)</div></li>
+                    <li>Target with initial velocity and acceleration: \(\vec{p}(t) = \vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2\)</li>
                 </ul>
 
                 <p>
@@ -62,40 +65,42 @@
                 </p>
 
                 <p>
-                    \(\vec{p}(t) = \vec{b}(t)\)
-                    <br>
-                    \(\vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2 = \vec{r}t\), where \(\vec{a}\) is the gravitational constant pointed to the ground, and \(\vec{r}\) is the velocity of the projectile.
-                    <br>
-                    \(\vec{r} = \frac{\displaystyle \vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2}{\displaystyle t}\)
+                    $$
+                    \begin{align}
+                        \vec{b}(t) &= \vec{p}(t) \\
+                        \vec{r}t &= \vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2 \\
+                        \vec{r} &= \frac{\vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2}{t}
+                    \end{align}
+                    $$
                 </p>
 
                 <p>
                     Now we have \(\vec{r}\) isolated, but we don't know what \(t\), the time of impact, is. We obviously can't find a solution in this form, but we have a trick that will make this possible to solve &mdash; we can dot product both sides by themselves.
                     <br>
                     <div class="long-equation">
-                        \[
-                        \vec{r} \cdot \vec{r} =
-                        \frac{
-                        \vec{p}(0) \cdot \vec{p}(0)
-                        + 2\vec{p}(0) \cdot \vec{v}t
-                        + \vec{p}(0) \cdot \vec{a}t^2
-                        + \vec{v} \cdot \vec{v}t^2
-                        + \vec{v} \cdot \vec{a}t^3
-                        + \frac{1}{4}\vec{a} \cdot \vec{a}t^4
-                        }{ t^2}
-                        \]
+                        $$
+                            \vec{r} \cdot \vec{r} =
+                            \frac{
+                            \vec{p}(0) \cdot \vec{p}(0)
+                            + 2\vec{p}(0) \cdot \vec{v}t
+                            + \vec{p}(0) \cdot \vec{a}t^2
+                            + \vec{v} \cdot \vec{v}t^2
+                            + \vec{v} \cdot \vec{a}t^3
+                            + \frac{1}{4}\vec{a} \cdot \vec{a}t^4
+                            }{ t^2}
+                        $$
                     </div>
                     <br>
                     Rearranging, and grouping by power of t, we get
                     <br>
                     <div class="long-equation">
-                        \[
-                        \frac{1}{4}\left(\|\vec{a}\|^2\right)t^4
-                        + \left(\vec{a} \cdot \vec{v}\right)t^3
-                        + \left(\vec{p}(0) \cdot \vec{a} + \|\vec{v}\|^2 - \|\vec{r}\|^2\right)t^2
-                        + 2\left(\vec{p}(0) \cdot \vec{v}\right)t
-                        + \|\vec{p}(0)\|^2 = 0
-                        \]
+                        $$
+                            \frac{1}{4}\left(\|\vec{a}\|^2\right)t^4
+                            + \left(\vec{a} \cdot \vec{v}\right)t^3
+                            + \left(\vec{p}(0) \cdot \vec{a} + \|\vec{v}\|^2 - \|\vec{r}\|^2\right)t^2
+                            + 2\left(\vec{p}(0) \cdot \vec{v}\right)t
+                            + \|\vec{p}(0)\|^2 = 0
+                        $$
                     </div>
                 </p>
 
@@ -109,13 +114,13 @@
 
                 <p>If you get it working correctly, it should look something like this:</p>
                 <div class="videoWrapper">
-                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6LjGSMx9xpI?mute=1&start=4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6LjGSMx9xpI?mute=1&start=4" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <p>Note: the aimbot is doing corrections to make the projectile aim toward where the feet of the target should be.</p>
 
                 <p>Here's another demonstration with both target and projectile being affected by gravity:</p>
                 <div class="videoWrapper">
-                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/CdAuDBKvzr0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/CdAuDBKvzr0" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <h2>Further reading:</h2>
                 <ul>
