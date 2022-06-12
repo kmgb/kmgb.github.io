@@ -59,7 +59,6 @@
                 <p>
                     After we have the forms of \(\vec{p}(t)\) and \(\vec{b}(t)\), we can equate them.
                     <br>For this, I will be assuming the target is moving in a parabola (affected by gravity with initial velocity) and the projectile moves at a constant velocity from the origin.
-                    <br>This will be the case that is demonstrated in the video at the end of the article.
                 </p>
 
                 <p>
@@ -74,29 +73,29 @@
                     Now we have \(\vec{r}\) isolated, but we don't know what \(t\), the time of impact, is. We obviously can't find a solution in this form, but we have a trick that will make this possible to solve &mdash; we can dot product both sides by themselves.
                     <br>
                     <div class="long-equation">
-                        \(
+                        \[
                         \vec{r} \cdot \vec{r} =
-                        \frac{\displaystyle
+                        \frac{
                         \vec{p}(0) \cdot \vec{p}(0)
                         + 2\vec{p}(0) \cdot \vec{v}t
                         + \vec{p}(0) \cdot \vec{a}t^2
                         + \vec{v} \cdot \vec{v}t^2
                         + \vec{v} \cdot \vec{a}t^3
                         + \frac{1}{4}\vec{a} \cdot \vec{a}t^4
-                        }{\displaystyle t^2}
-                        \)
+                        }{ t^2}
+                        \]
                     </div>
                     <br>
                     Rearranging, and grouping by power of t, we get
                     <br>
                     <div class="long-equation">
-                        \(
+                        \[
                         \frac{1}{4}\left(\|\vec{a}\|^2\right)t^4
                         + \left(\vec{a} \cdot \vec{v}\right)t^3
                         + \left(\vec{p}(0) \cdot \vec{a} + \|\vec{v}\|^2 - \|\vec{r}\|^2\right)t^2
                         + 2\left(\vec{p}(0) \cdot \vec{v}\right)t
                         + \|\vec{p}(0)\|^2 = 0
-                        \)
+                        \]
                     </div>
                 </p>
 
@@ -110,17 +109,18 @@
 
                 <p>If you get it working correctly, it should look something like this:</p>
                 <div class="videoWrapper">
-                    <iframe title="YouTube video demonstrating projectile prediction" width="560" height="315" src="https://www.youtube-nocookie.com/embed/6LjGSMx9xpI?mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6LjGSMx9xpI?mute=1&start=4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
                 <p>Note: the aimbot is doing corrections to make the projectile aim toward where the feet of the target should be.</p>
 
-                <p>
-                    The process is very similar for all variations of the problem, so if you can understand the example, you can re-apply it to solve an arbitrarily difficult one.
-                </p>
-
+                <p>Here's another demonstration with both target and projectile being affected by gravity:</p>
+                <div class="videoWrapper">
+                    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/CdAuDBKvzr0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
                 <h2>Further reading:</h2>
                 <ul>
                     <li><a href="https://en.wikipedia.org/wiki/Monkey_and_hunter">Monkey and hunter (Wikipedia)</a></li>
+                    <li><a href="https://gamedev.stackexchange.com/a/149612">Projectile Aim Prediction with Acceleration (Stack Exchange)</a></li>
                 </ul>
             </article>
         </main>
