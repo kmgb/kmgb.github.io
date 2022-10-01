@@ -184,7 +184,7 @@ ul.skills-list {
 
     margin: 0;
     padding: 0;
-    height: 100vh;
+    min-height: 100vh; /* Prevent footer not being at the bottom of the window for short webpages */
     overflow-x: hidden;
 
     --scrollbar-gutter-width: calc(100vw - 100%)
