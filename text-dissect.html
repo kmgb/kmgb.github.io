@@ -51,7 +51,7 @@
                     <label for="custom-glyph-input">U+</label>
                     <input id="custom-glyph-input" size="6">
                     <button id="custom-glyph-button">Generate &rarr;</button>
-                    <input id="custom-glyph-output" readonly>
+                    <input id="custom-glyph-output" readonly aria-label="Glyph generator output field">
                 </div>
                 <h2>Interesting Unicode Codepoints</h2>
                 <table style="width: 100%">
@@ -63,28 +63,28 @@
                     </tr>
 
                     <tr>
-                        <td><input value="&#x202E;" type="text" size="5" readonly></td>
+                        <td><input value="&#x202E;" aria-label="U+202E glyph box" type="text" size="5" readonly></td>
                         <td>U+202E</td>
                         <td>Right-to-left override</td>
                         <td>Reverses the order of characters like so: 'gnp.exe' to &#x202E;'gnp.exe'</td>
                     </tr>
 
                     <tr>
-                        <td><input value="&#xFDFD;" type="text" size="5" readonly></td>
+                        <td><input value="&#xFDFD;" aria-label="U+FDFD glyph box" type="text" size="5" readonly></td>
                         <td>U+FDFD</td>
                         <td>Basmala</td>
                         <td>Islamic phrase, really big unicode character, breaks many text inputs because of its size</td>
                     </tr>
 
                     <tr>
-                        <td><input value="&#x200D" type="text" size="5" readonly></td>
+                        <td><input value="&#x200D" aria-label="U+200D glyph box" type="text" size="5" readonly></td>
                         <td>U+200D</td>
                         <td>Zero width joiner</td>
                         <td>Joins two or more characters in a sequence to make a new emoji. Man + ZWJ + White hair = 👨‍🦳</td>
                     </tr>
 
                     <tr>
-                        <td><input value="&#x200B;" type="text" size="5" readonly></td>
+                        <td><input value="&#x200B;" aria-label="U+200B glyph box" type="text" size="5" readonly></td>
                         <td>U+200B</td>
                         <td>Zero-width space</td>
                         <td>Used to separate words in languages with no explicit spacing</td>
