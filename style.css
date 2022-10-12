@@ -303,6 +303,30 @@ main {
     width: 100%;
 }
 
+#theme-checkbox[type="checkbox"] {
+    display: none;
+}
+
+#theme-checkbox[type="checkbox"] ~ label::before {
+    display: inline-block;
+    width: 1em;
+    text-align: center;
+    margin-right: 1ch;
+}
+
+#theme-checkbox[type="checkbox"]:checked ~ label::before {
+    content: "☀︎\fe0e";
+}
+
+#theme-checkbox[type="checkbox"] ~ label::before {
+    content: "🌙\fe0e";
+}
+
+label[for=theme-checkbox] {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
 .long-equation {
     overflow-x: auto;
     overflow-y: hidden;
