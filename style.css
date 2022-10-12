@@ -231,7 +231,7 @@ header, footer {
     display: flex;
     flex-direction: row;
     align-items: center;
-    line-height: 0px; /* TODO: Better fix when rewritten, this fixes the left icons not being centered vertically */
+    line-height: 0; /* TODO: Better fix when rewritten, this fixes the left icons not being centered vertically */
 }
 
 .header-left > * {

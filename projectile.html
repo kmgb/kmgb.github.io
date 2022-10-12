@@ -76,33 +76,32 @@
 
                 <p>
                     Now we have \(\vec{r}\) isolated, but we don't know what \(t\), the time of impact, is. We obviously can't find a solution in this form, but we have a trick that will make this possible to solve &mdash; we can dot product both sides by themselves.
-                    <br>
-                    <div class="long-equation">
-                        $$
-                            \vec{r} \cdot \vec{r} =
-                            \frac{
-                            \vec{p}(0) \cdot \vec{p}(0)
-                            + 2\vec{p}(0) \cdot \vec{v}t
-                            + \vec{p}(0) \cdot \vec{a}t^2
-                            + \vec{v} \cdot \vec{v}t^2
-                            + \vec{v} \cdot \vec{a}t^3
-                            + \frac{1}{4}\vec{a} \cdot \vec{a}t^4
-                            }{ t^2}
-                        $$
-                    </div>
-                    <br>
-                    Rearranging, and grouping by power of t, we get
-                    <br>
-                    <div class="long-equation">
-                        $$
-                            \frac{1}{4}\left(\|\vec{a}\|^2\right)t^4
-                            + \left(\vec{a} \cdot \vec{v}\right)t^3
-                            + \left(\vec{p}(0) \cdot \vec{a} + \|\vec{v}\|^2 - \|\vec{r}\|^2\right)t^2
-                            + 2\left(\vec{p}(0) \cdot \vec{v}\right)t
-                            + \|\vec{p}(0)\|^2 = 0
-                        $$
-                    </div>
                 </p>
+                <div class="long-equation">
+                    $$
+                        \vec{r} \cdot \vec{r} =
+                        \frac{
+                        \vec{p}(0) \cdot \vec{p}(0)
+                        + 2\vec{p}(0) \cdot \vec{v}t
+                        + \vec{p}(0) \cdot \vec{a}t^2
+                        + \vec{v} \cdot \vec{v}t^2
+                        + \vec{v} \cdot \vec{a}t^3
+                        + \frac{1}{4}\vec{a} \cdot \vec{a}t^4
+                        }{ t^2}
+                    $$
+                </div>
+                <br>
+                Rearranging, and grouping by power of t, we get
+                <br>
+                <div class="long-equation">
+                    $$
+                        \frac{1}{4}\left(\|\vec{a}\|^2\right)t^4
+                        + \left(\vec{a} \cdot \vec{v}\right)t^3
+                        + \left(\vec{p}(0) \cdot \vec{a} + \|\vec{v}\|^2 - \|\vec{r}\|^2\right)t^2
+                        + 2\left(\vec{p}(0) \cdot \vec{v}\right)t
+                        + \|\vec{p}(0)\|^2 = 0
+                    $$
+                </div>
 
                 <p>
                     So, we have a quartic equation whose roots are the times at which the projectile will hit the target. The roots are, of course, not necessarily real, which nicely highlights the fact that not all situations have a real(useful) solution that we can use. Such as a situation where the target is moving away from us faster than our projectile moves, making it impossible for us to ever hit it.
@@ -133,10 +132,8 @@
             <div class="footer-inner">
                 <span class="footer-left">© 2020 Kevin Brennan</span>
                 <span class="footer-right">
-                    <div id="#theme-toggle">
-                        <input type="checkbox" id="theme-checkbox"/>
-                        <label for="theme-checkbox">Website theme</label>
-                    </div>
+                    <input type="checkbox" id="theme-checkbox"/>
+                    <label for="theme-checkbox">Website theme</label>
                 </span>
             </div>
         </footer>
