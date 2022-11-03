@@ -295,6 +295,7 @@ nav.site-nav > ul > li > a {
     margin: 0 1em;
     display: block;
     text-align: center;
+    line-height: 3em;
 }
 
 main {
