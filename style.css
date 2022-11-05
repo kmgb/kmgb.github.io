@@ -292,10 +292,9 @@ nav.site-nav > ul {
 nav.site-nav > ul > li > a {
     text-decoration: none;
     color: var(--text);
-    margin: 0 1em;
     display: block;
     text-align: center;
-    line-height: 3em;
+    padding: 5rem 1rem; /* Give plenty of padding so the touch target is as big as possible vertically */
 }
 
 main {
