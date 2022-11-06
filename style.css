@@ -125,6 +125,11 @@ h1, h2, h3 {
     font-weight: normal;
 }
 
+/* Override user-agent stylings for h1 within articles or sections */
+h1 {
+    font-size: 2em;
+}
+
 ul.skills-list {
     display: inline-block;
     text-align: left;
@@ -311,15 +316,11 @@ main {
     display: inline-block;
     width: 1em;
     text-align: center;
-    margin-right: 1ch;
-}
-
-#theme-checkbox[type="checkbox"]:checked ~ label::before {
-    content: "☀︎\fe0e";
+    margin-right: 0.5ch;
 }
 
 #theme-checkbox[type="checkbox"] ~ label::before {
-    content: "🌙\fe0e";
+    content: "◑";
 }
 
 /* Add a focus outline to the fake checkbox substitute for a11y */
