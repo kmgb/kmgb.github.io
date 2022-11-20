@@ -68,7 +68,7 @@ function processCommand(c) {
                 window.location.href = "./text-dissect";
                 break;
             case "resume":
-                window.location.href = "./Resume - Kevin Brennan.pdf";
+                window.location.href = "./resume";
                 break;
             default:
                 promptOutput.textContent = "Page does not exist, use 'ls' for a list of pages";
