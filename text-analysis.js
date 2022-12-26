@@ -1,8 +1,8 @@
 "use strict";
 
-const dissectionArea = document.getElementById('dissection-area');
-const dissectionAreaBreakdown = document.getElementById('dissection-area-breakdown');
-const textArea = document.getElementById('dissection-text');
+const analysisArea = document.getElementById('analysis-area');
+const analysisAreaBreakdown = document.getElementById('analysis-area-breakdown');
+const textArea = document.getElementById('analysis-text');
 
 textArea.value = ''; // Clear text area on load, some browsers like to save it as if it's a form
 
@@ -34,8 +34,8 @@ textArea.addEventListener('input', function () {
             i++;
     }
 
-    dissectionArea.textContent = codepoints.join(', ');
-    //dissectionAreaBreakdown.textContent = breakdownCodes(codes);
+    analysisArea.textContent = codepoints.join(', ');
+    //analysisAreaBreakdown.textContent = breakdownCodes(codes);
 });
 
 function breakdownCodes(codes) {
@@ -50,7 +50,7 @@ function breakdownCodes(codes) {
         else {
             breakdown += ', [';
 
-            // ... further dissect code
+            // ... further break down code
 
             breakdown += ']';
         }
