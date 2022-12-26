@@ -1,3 +1,14 @@
+/* Resets */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
 /* Google Font self-host stuff begin */
 
 /* roboto-regular - latin */
@@ -47,6 +58,8 @@
     --text: var(--gray1);
 
     --scrollbar-gutter-width: 0px;
+
+    font-size: 16px;
 }
 
 .light-theme {
@@ -60,7 +73,6 @@ body {
     text-rendering: optimizeLegibility;
 
     font-family: var(--sans-font);
-    font-size: 16px;
     line-height: 1.5;
     color: var(--text);
     background: var(--bg-content);
@@ -124,11 +136,31 @@ kbd {
 h1, h2, h3 {
     font-family: var(--serif-font);
     font-weight: normal;
+    margin: 2rem 0 0.5rem;
 }
 
 /* Override user-agent stylings for h1 within articles or sections */
 h1 {
     font-size: 2em;
+}
+
+h2 {
+    font-size: 1.4em;
+}
+
+p {
+    margin-block: 1em;
+}
+
+ol, ul {
+    margin-left: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+input {
+    line-height: normal;
+    padding: 0.05em 0.025em;
 }
 
 ul.skills-list {
@@ -205,13 +237,14 @@ article {
 header {
     grid-area: header;
 
-    height: 3em;
+    height: 4em;
     max-width: 100%;
 }
 
 header, footer {
     background-color: var(--bg-nav);
     padding: 0.5em 1em;
+    z-index: 100;
 }
 
 /* --page-maxwidth */
@@ -272,6 +305,7 @@ footer {
     float: right;
 }
 
+/* Nav styling */
 nav.site-nav {
     height: 100%;
     width: 100%;
@@ -354,4 +388,9 @@ label[for=theme-checkbox] {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+/* Page-specific styles */
+table.codepoint-table input {
+    font-family: Arial, system-ui; /* Arial renders Basmala better */
 }
