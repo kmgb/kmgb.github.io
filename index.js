@@ -48,7 +48,7 @@ function processCommand(c) {
     } else if (c === "help") {
         promptOutput.textContent = "Valid commands: "+validCmds;
     } else if (c === "ls") {
-        promptOutput.textContent = "., .., resume, projectile, text";
+        promptOutput.textContent = "., .., resume, projectile, text, extensions";
     } else if (c === "cd") {
         promptOutput.textContent = "Usage: cd <page>";
     } else if (c.startsWith("cd ")) {
@@ -61,11 +61,14 @@ function processCommand(c) {
             case "..":
                 window.location.href = "https://github.com/kmgb/kmgb.github.io";
                 break;
+            case "extensions":
+                window.location.href = "./browser-extensions";
+                break;
             case "projectile":
                 window.location.href = "./projectile";
                 break;
             case "text":
-                window.location.href = "./text-dissect";
+                window.location.href = "./text-analysis";
                 break;
             case "resume":
                 window.location.href = "./resume";
