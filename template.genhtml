@@ -6,8 +6,8 @@
     <title>%%TITLE%%</title>
     <meta name="description" content="%%DESCRIPTION%%">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet" type="text/css">
-    <script defer src="site.js"></script>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+    <script defer src="/site.js"></script>
     %%EXTRA_HEAD_ITEMS%%
 
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
@@ -41,7 +41,7 @@
 
         <footer>
             <div class="footer-inner">
-                <span class="footer-left">© 2020 Kevin Brennan</span>
+                <span class="footer-left">© 2023 Kevin Brennan</span>
                 <span class="footer-right"><input type="checkbox" id="theme-checkbox"/><label for="theme-checkbox">Website theme</label></span>
             </div>
         </footer>
