@@ -1,27 +1,32 @@
 """Generate HTML pages given template file
 This program looks for a folder called pages/ under the current working directory.
-It then uses a template file (template.genhtml) to generate HTML files from
-the files under pages/ with portions of the template replaced with the
-frontmatter specified in each file, as well as the content therein.
+It then uses template files (*.html_template) to generate HTML files from the files under pages/ and pages/blog/ with
+portions of the template replaced with the frontmatter specified in each file, as well as the content therein.
 
-The resulting HTML file is then minified and saved to the current working directory.
+The resulting HTML file is then minified and saved to the current working directory or ./blog as appropriate.
 
 e.g.
 ./pages/
     index.html
     coolpage.abcd
     page3.x
+    blog/blogpage.html
 
 Generates
 
 ./index.html
 ./coolpage.html
 ./page3.html
+./blog/blogpage.html
 """
 
 from pathlib import Path
 import frontmatter
 import minify_html
+
+PAGE_TEMPLATE_PATH = Path("./meta/page.html_template")
+PAGE_DIRECTORY_PATH = Path("./pages")
+BLOG_DIRECTORY_PATH = Path("./pages/blog")
 
 
 class PageMetadata:
@@ -36,11 +41,11 @@ class PageMetadata:
 def main():
     # Load the template file into a string
     template_str = ""
-    with open("template.genhtml", encoding="utf-8") as template_file:
+    with open(PAGE_TEMPLATE_PATH, encoding="utf-8") as template_file:
         template_str = template_file.read()
 
-    path_pages = Path("./pages")
-    path_blogs = Path("./pages/blog")
+    path_pages = Path(PAGE_DIRECTORY_PATH)
+    path_blogs = Path(BLOG_DIRECTORY_PATH)
 
     # Go through each page to be generated, and replace the template
     # items with their specified data.
