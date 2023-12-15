@@ -173,6 +173,32 @@ ul.skills-list {
     margin: 0;
 }
 
+ul.blog-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+}
+
+.blog-list > li > a {
+    padding: 1em;
+    display: block;
+    text-decoration: none;
+
+    margin: 1em;
+    padding: 1em;
+    outline: var(--text) solid 1px;
+    border-radius: 1rem;
+}
+
+.blog-snippet-title {
+    margin: 0 0 0.5rem 0;
+}
+
+.blog-snippet-date {
+    margin: 0 0 0.5rem 0;
+}
+
 .social-layout {
     margin: 1rem;
 }
