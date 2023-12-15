@@ -3,77 +3,75 @@ title: Text Analysis - Kevin Brennan
 description: Analyze text, see the unicode breakdown.
 extra_head_items: <script defer src="text-analysis.js"></script>
 ---
-    <script defer src="text-analysis.js"></script>
+<main>
+    <article>
+        <h1>Text Analysis</h1>
+        <p>Type in the text box below to see the Unicode breakdown of the text.</p>
+        <label for="analysis-text">Text to analyze:</label>
+        <textarea style="width: 100%;" id="analysis-text" placeholder="" autofocus></textarea><br>
+        <div>Output: <code id="analysis-area"></code></div>
+        <!-- <div>Breakdown: <code id="analysis-area-breakdown"></code></div> -->
+        <h2>Glyph Generator</h2>
+        <p>Enter a valid hexadecimal codepoint below and click Generate, the output will be displayed in the box to the right.</p>
+        <div style="display: flex;">
+            <label for="custom-glyph-input">U+</label>
+            <input id="custom-glyph-input" size="6">
+            <button id="custom-glyph-button">Generate &rarr;</button>
+            <input id="custom-glyph-output" readonly aria-label="Glyph generator output field">
+        </div>
+        <h2>Interesting Unicode Codepoints</h2>
+        <table style="width: 100%" class="codepoint-table">
+            <tr style="font-weight: bold;">
+                <td>Glyph</td>
+                <td>Code</td>
+                <td>Name</td>
+                <td>Description</td>
+            </tr>
 
-        <main>
-            <article>
-                <h1>Text Analysis</h1>
-                <p>Type in the text box below to see the Unicode breakdown of the text.</p>
-                <label for="analysis-text">Text to analyze:</label>
-                <textarea style="width: 100%;" id="analysis-text" placeholder="" autofocus></textarea><br>
-                <div>Output: <code id="analysis-area"></code></div>
-                <!-- <div>Breakdown: <code id="analysis-area-breakdown"></code></div> -->
-                <h2>Glyph Generator</h2>
-                <p>Enter a valid hexadecimal codepoint below and click Generate, the output will be displayed in the box to the right.</p>
-                <div style="display: flex;">
-                    <label for="custom-glyph-input">U+</label>
-                    <input id="custom-glyph-input" size="6">
-                    <button id="custom-glyph-button">Generate &rarr;</button>
-                    <input id="custom-glyph-output" readonly aria-label="Glyph generator output field">
-                </div>
-                <h2>Interesting Unicode Codepoints</h2>
-                <table style="width: 100%" class="codepoint-table">
-                    <tr style="font-weight: bold;">
-                        <td>Glyph</td>
-                        <td>Code</td>
-                        <td>Name</td>
-                        <td>Description</td>
-                    </tr>
+            <tr>
+                <td><input value="&#x202E;" aria-label="U+202E glyph box" type="text" size="5" readonly></td>
+                <td>U+202E</td>
+                <td>Right-to-left override</td>
+                <td>Reverses the order of characters like so: 'gnp.exe' to &#x202E;'gnp.exe'</td>
+            </tr>
 
-                    <tr>
-                        <td><input value="&#x202E;" aria-label="U+202E glyph box" type="text" size="5" readonly></td>
-                        <td>U+202E</td>
-                        <td>Right-to-left override</td>
-                        <td>Reverses the order of characters like so: 'gnp.exe' to &#x202E;'gnp.exe'</td>
-                    </tr>
+            <tr>
+                <td><input value="&#xFDFD;" aria-label="U+FDFD glyph box" type="text" size="5" readonly></td>
+                <td>U+FDFD</td>
+                <td>Basmala</td>
+                <td>Islamic phrase, really big unicode character, breaks many text inputs because of its size</td>
+            </tr>
 
-                    <tr>
-                        <td><input value="&#xFDFD;" aria-label="U+FDFD glyph box" type="text" size="5" readonly></td>
-                        <td>U+FDFD</td>
-                        <td>Basmala</td>
-                        <td>Islamic phrase, really big unicode character, breaks many text inputs because of its size</td>
-                    </tr>
+            <tr>
+                <td><input value="&#x200D" aria-label="U+200D glyph box" type="text" size="5" readonly></td>
+                <td>U+200D</td>
+                <td>Zero width joiner</td>
+                <td>Joins two or more characters in a sequence to make a new emoji. Man + ZWJ + White hair = 👨‍🦳</td>
+            </tr>
 
-                    <tr>
-                        <td><input value="&#x200D" aria-label="U+200D glyph box" type="text" size="5" readonly></td>
-                        <td>U+200D</td>
-                        <td>Zero width joiner</td>
-                        <td>Joins two or more characters in a sequence to make a new emoji. Man + ZWJ + White hair = 👨‍🦳</td>
-                    </tr>
+            <tr>
+                <td><input value="&#x200B;" aria-label="U+200B glyph box" type="text" size="5" readonly></td>
+                <td>U+200B</td>
+                <td>Zero-width space</td>
+                <td>Used to separate words in languages with no explicit spacing</td>
+            </tr>
+        </table>
 
-                    <tr>
-                        <td><input value="&#x200B;" aria-label="U+200B glyph box" type="text" size="5" readonly></td>
-                        <td>U+200B</td>
-                        <td>Zero-width space</td>
-                        <td>Used to separate words in languages with no explicit spacing</td>
-                    </tr>
-                </table>
+        <h2>How to Copy the Glyphs</h2>
+        <ol>
+            <li>Focus the input box of the codepoint you want</li>
+            <li>Select all (<kbd>Ctrl</kbd>+<kbd>A</kbd> or <kbd>⌘</kbd>+<kbd>A</kbd>)</li>
+            <li>Copy (<kbd>Ctrl</kbd>+<kbd>C</kbd> or <kbd>⌘</kbd>+<kbd>C</kbd>)</li>
+        </ol>
 
-                <h2>How to Copy the Glyphs</h2>
-                <ol>
-                    <li>Focus the input box of the codepoint you want</li>
-                    <li>Select all (<kbd>Ctrl</kbd>+<kbd>A</kbd> or <kbd>⌘</kbd>+<kbd>A</kbd>)</li>
-                    <li>Copy (<kbd>Ctrl</kbd>+<kbd>C</kbd> or <kbd>⌘</kbd>+<kbd>C</kbd>)</li>
-                </ol>
+        <h2>Using a Script to Enter Unicode</h2>
+        <p>An easy method to enter special characters is by using an AutoHotkey script. You can use the Send command with codepoint literals like so:</p>
+        <code>CapsLock &  \::Send {U+0300}</code>
+        <p>The above allows you to use caps-lock+backslash as a hotkey to send a combining grave accent (attaches to the previous character). I use a series of hotkeys to more easily type accents and symbols, you can check that out at <a href="https://github.com/kmgb/character-input-ahk">this repository</a>.</p>
 
-                <h2>Using a Script to Enter Unicode</h2>
-                <p>An easy method to enter special characters is by using an AutoHotkey script. You can use the Send command with codepoint literals like so:</p>
-                <code>CapsLock &  \::Send {U+0300}</code>
-                <p>The above allows you to use caps-lock+backslash as a hotkey to send a combining grave accent (attaches to the previous character). I use a series of hotkeys to more easily type accents and symbols, you can check that out at <a href="https://github.com/kmgb/character-input-ahk">this repository</a>.</p>
-
-                <h2>See also</h2>
-                <ul>
-                    <li><a href="https://www.babelstone.co.uk/Unicode/babelmap.html">BabelMap Unicode Lookup</a></li>
-                </ul>
-            </article>
-        </main>
+        <h2>See also</h2>
+        <ul>
+            <li><a href="https://www.babelstone.co.uk/Unicode/babelmap.html">BabelMap Unicode Lookup</a></li>
+        </ul>
+    </article>
+</main>
