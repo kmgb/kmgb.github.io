@@ -126,14 +126,6 @@ kbd {
     white-space: nowrap;
 }
 
-/* Special stuff for index.html */
-.real-name-title {
-    font-size: 3.5rem;
-    margin: 0 0 1rem 0;
-    font-weight: normal;
-    line-height: normal;
-}
-
 h1, h2, h3 {
     font-family: var(--serif-font);
     font-weight: normal;
@@ -143,6 +135,10 @@ h1, h2, h3 {
 /* Override user-agent stylings for h1 within articles or sections */
 h1 {
     font-size: 2em;
+}
+
+article > h1:first-child {
+    margin-top: 0; /* remove the unnencessary top margin if it's the first child */
 }
 
 h2 {
@@ -168,46 +164,18 @@ input {
     padding: 0.05em 0.025em;
 }
 
+/* Special stuff for index.html */
+.real-name-title {
+    font-size: 3.5rem;
+    margin: 0 0 1rem 0;
+    font-weight: normal;
+    line-height: normal;
+}
+
 ul.skills-list {
     display: inline-block;
     text-align: left;
     margin: 0;
-}
-
-ul.blog-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-}
-
-.blog-list > li > a {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    text-decoration: none;
-    background: var(--bg-nav);
-}
-
-.blog-snippet-text {
-    margin: 1em;
-}
-
-.blog-snippet-title {
-    margin: 0 0 0.5rem 0;
-    text-decoration: underline;
-    font-size: 1.rem;
-}
-
-.blog-snippet-date {
-    margin: 0 0 0.5rem 0;
-}
-
-.blog-snippet-image {
-    max-height: 100%;
-    height: var(--blog-snippet-height);
-    @media screen and (max-width: 750px) {
-        display: none;
-    }
 }
 
 .social-layout {
@@ -433,6 +401,47 @@ label[for=theme-checkbox] {
 }
 
 /* Page-specific styles */
+/* Blog index */
+ul.blog-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+}
+
+.blog-list > li > a {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    text-decoration: none;
+    background: var(--bg-nav);
+}
+
+.blog-snippet-text {
+    margin: 1em;
+}
+
+.blog-snippet-title {
+    margin: 0 0 0.5rem 0;
+    text-decoration: underline;
+    font-size: 1.rem;
+}
+
+.blog-snippet-date {
+    margin: 0 0 0.5rem 0;
+}
+
+.blog-snippet-image {
+    max-height: 100%;
+    height: var(--blog-snippet-height);
+}
+
+@media screen and (max-width: 750px) {
+    .blog-snippet-image {
+        display: none;
+    }
+}
+
+/* Text analysis */
 table.codepoint-table input {
     font-family: Arial, system-ui; /* Arial renders Basmala better */
 }
