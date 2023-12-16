@@ -185,7 +185,6 @@ ul.blog-list {
     display: grid;
     grid-template-columns: auto 1fr;
     text-decoration: none;
-    margin: 1em;
     background: var(--bg-nav);
 }
 
@@ -383,6 +382,7 @@ main {
     grid-area: content;
     background-color: var(--bg-content);
     width: 100%;
+    margin: 3rem 0;
 }
 
 #theme-checkbox[type="checkbox"] {
