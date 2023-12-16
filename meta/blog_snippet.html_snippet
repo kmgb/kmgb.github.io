@@ -1,7 +1,10 @@
 <li>
 <a href="%%PATH%%">
-    <h1 class="blog-snippet-title">%%TITLE%%</h1>
-    <h3 class="blog-snippet-date"><time datetime="%%DATE%%">%%DATE%%</time></h3>
-    <div>%%DESCRIPTION%%</div>
+    <img src="%%IMAGE%%" alt="%%TITLE%%" class="blog-snippet-image"/>
+    <div class="blog-snippet-text">
+        <h1 class="blog-snippet-title">%%TITLE%%</h1>
+        <h3 class="blog-snippet-date"><time datetime="%%DATE%%">%%DATE%%</time></h3>
+        <div>%%DESCRIPTION%%</div>
+    </div>
 </a>
 </li>
