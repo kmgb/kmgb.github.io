@@ -1,7 +1,7 @@
 ---
 title: Text Analysis - Kevin Brennan
 description: Analyze text, see the unicode breakdown.
-extra_head_items: <script defer src="text-analysis.js"></script>
+extra_head_items: <script defer src="/resources/scripts/text-analysis.js"></script>
 ---
 <main>
     <article>
