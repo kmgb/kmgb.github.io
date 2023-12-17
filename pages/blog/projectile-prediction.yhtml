@@ -3,9 +3,9 @@ title: Projectile Prediction Math - Kevin Brennan
 description: The math behind projectile prediction. Using initial conditions to determine launch angle.
 date: "2022-10-16"
 extra_head_items: >
-    <link rel="stylesheet" href="/katex/katex.min.css">
-    <script defer src="/katex/katex.min.js"></script>
-    <script defer src="/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    <link rel="stylesheet" href="/resources/katex/katex.min.css">
+    <script defer src="/resources/katex/katex.min.js"></script>
+    <script defer src="/resources/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
 ---
 <main>
     <article>

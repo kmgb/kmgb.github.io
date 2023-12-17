@@ -18,8 +18,8 @@
     font-weight: 400;
     font-display: swap;
     src: local(''),
-         url('/fonts/roboto-v29-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('/fonts/roboto-v29-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+         url('/resources/fonts/roboto-v29-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('/resources/fonts/roboto-v29-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* roboto-slab-regular - latin */
@@ -29,9 +29,9 @@
     font-weight: 400;
     font-display: swap;
     src: local(''),
-         url('/fonts/RobotoSlab-VariableFont_wght.ttf') format('truetype-variations'), /* Support variable weight, if possible */
-         url('/fonts/roboto-slab-v16-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('/fonts/roboto-slab-v16-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+         url('/resources/fonts/RobotoSlab-VariableFont_wght.ttf') format('truetype-variations'), /* Support variable weight, if possible */
+         url('/resources/fonts/roboto-slab-v16-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('/resources/fonts/roboto-slab-v16-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* Google Font self-host stuff end */

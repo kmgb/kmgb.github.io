@@ -123,7 +123,7 @@ def generate_blog_index(blog_metadata: list[PageMetadata]):
         blog_item = blog_item.replace("%%DESCRIPTION%%", metadata.description)
         blog_item = blog_item.replace("%%DATE%%", metadata.date)
         blog_item = blog_item.replace("%%PATH%%", f"/blog/{metadata.url_title}")
-        blog_item = blog_item.replace("%%IMAGE%%", f"/images/{metadata.url_title}-blog.png")
+        blog_item = blog_item.replace("%%IMAGE%%", f"/resources/images/{metadata.url_title}-blog.png")
 
         blog_items_str += blog_item
 

@@ -10,8 +10,8 @@
     <script defer src="/site.js"></script>
     %%EXTRA_HEAD_ITEMS%%
 
-    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
-    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="icon" type="image/svg+xml" href="/resources/images/favicon.svg">
+    <link rel="icon" type="image/png" href="/resources/images/favicon.png">
 </head>
 
 <body>
