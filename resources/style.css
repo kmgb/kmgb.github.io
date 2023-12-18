@@ -59,6 +59,7 @@
 
     --scrollbar-gutter-width: 0px;
     --blog-snippet-height: 180px;
+    --border-radius: 4px;
 
     font-size: 16px;
 }
@@ -105,24 +106,30 @@ abbr[title]:focus::after {
 
 code {
     font-family: var(--code-font);
+    background-color: var(--bg-nav);
+    padding: 2px var(--border-radius);
+    border-radius: var(--border-radius);
 }
 
-pre.cpp {
+pre {
     border-left: 1px solid currentColor;
+    border-radius: var(--border-radius);
     padding: 0.5em 0 0.5em 1em;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-nav);
     overflow-x: auto;
+    margin-bottom: 1em;
 }
 
 kbd {
+    margin: 0 0.1em;
+    padding: 0.1em 0.3em;
     font-family: var(--code-font);
-    color: var(--bg-content);
-    background-color: var(--text);
-    border-radius: 0.2em;
-    display: inline-block;
+    box-shadow: 0 2px 0 color-mix(in srgb, var(--text) 20%, transparent);
+    outline: 1px solid color-mix(in srgb, var(--text) 20%, transparent);
+    background-color: var(--bg-nav);
+    border-radius: var(--border-radius);
     font-weight: normal;
     line-height: 1;
-    padding: 0.3em;
     white-space: nowrap;
 }
 
@@ -162,6 +169,10 @@ ol, ul {
 input {
     line-height: normal;
     padding: 0.05em 0.025em;
+}
+
+button {
+    padding: 0 0.35em;
 }
 
 /* Special stuff for index.html */
@@ -407,6 +418,7 @@ ul.blog-list {
     margin: 0;
     padding: 0;
     display: grid;
+    gap: 1.5rem;
 }
 
 .blog-list > li > a {
@@ -414,6 +426,8 @@ ul.blog-list {
     grid-template-columns: auto 1fr;
     text-decoration: none;
     background: var(--bg-nav);
+    border-radius: var(--border-radius);
+    overflow: hidden;
 }
 
 .blog-snippet-text {

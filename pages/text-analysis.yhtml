@@ -66,7 +66,7 @@ extra_head_items: <script defer src="/resources/scripts/text-analysis.js"></scri
 
         <h2>Using a Script to Enter Unicode</h2>
         <p>An easy method to enter special characters is by using an AutoHotkey script. You can use the Send command with codepoint literals like so:</p>
-        <code>CapsLock &  \::Send {U+0300}</code>
+        <pre><code>CapsLock &  \::Send {U+0300}</code></pre>
         <p>The above allows you to use caps-lock+backslash as a hotkey to send a combining grave accent (attaches to the previous character). I use a series of hotkeys to more easily type accents and symbols, you can check that out at <a href="https://github.com/kmgb/character-input-ahk">this repository</a>.</p>
 
         <h2>See also</h2>
