@@ -191,40 +191,49 @@ ul.skills-list {
 
 .social-layout {
     margin: 1rem;
-}
 
-.social-layout > *:not(:first-child) {
-    margin-left: 0.75rem;
+    > *:not(:first-child) {
+        margin-left: 0.75rem;
+    }
 }
 
 @keyframes blinkingText {
-    0%{visibility: visible;}
-    49%{visibility: visible;}
-    50%{visibility: hidden;}
-    100%{visibility: hidden;}
+    0%{opacity: 100%;}
+    49%{opacity: 100%;}
+    50%{opacity: 0%;}
+    100%{opacity: 0%;}
+}
+
+#prompt-input-container {
+    background: none;
+    font-size: 2rem;
 }
 
 #prompt-input {
     caret-color: transparent;
     cursor: default;
+
+    &:focus {
+        /* Some browsers (Chromium) show outlines for it */
+        outline: none;
+    }
+
+    &::before {
+        content: '$ ';
+    }
+
+    &::after {
+        content: "\00a0"; /* No-break space */
+    }
+
+    &:focus-within::after {
+        content: '_';
+        animation: blinkingText 1.1s infinite;
+    }
 }
 
-#prompt-input:focus {
-    /* Some browsers (Chromium) show outlines for it */
-    outline: none;
-}
-
-#prompt-input::before {
-    content: '$ ';
-}
-
-#prompt-input::after {
-    content: "\00a0"; /* No-break space */
-}
-
-#prompt-input:focus-within::after {
-    content: '_';
-    animation: blinkingText 1.1s infinite;
+#prompt-output {
+    background: none;
 }
 
 /* END Special stuff for index.html */
@@ -265,13 +274,11 @@ header, footer {
     background-color: var(--bg-nav);
     padding: 0.5em 1em;
     z-index: 100;
-}
 
-/* --page-maxwidth */
-/* Content jumping because of the scrollbar is only an issue when
-   page contents are larger than the page-maxwidth */
-@media screen and (min-width: 1080px) {
-    header, footer {
+    /* --page-maxwidth */
+    /* Content jumping because of the scrollbar is only an issue when
+    page contents are larger than the page-maxwidth */
+    @media screen and (min-width: 1080px) {
         padding-left: min(1em, var(--scrollbar-gutter-width));
     }
 }
@@ -291,19 +298,19 @@ header, footer {
     flex-direction: row;
     align-items: center;
     line-height: 0; /* TODO: Better fix when rewritten, this fixes the left icons not being centered vertically */
-}
 
-.header-left > * {
-    display: inline-block;
-}
+    > * {
+        display: inline-block;
+    }
 
-.header-left > :not(:last-child) {
-    border-right: 1px solid;
-    padding-right: 1em;
-}
+    > :not(:last-child) {
+        border-right: 1px solid;
+        padding-right: 1em;
+    }
 
-.header-left > :not(:first-child) {
-    padding-left: 1em;
+    > :not(:first-child) {
+        padding-left: 1em;
+    }
 }
 
 footer {
@@ -334,27 +341,27 @@ nav.site-nav {
     overflow-x: auto;
     display: flex;
     justify-content: flex-end; /* Align list content to the right */
-}
 
-nav.site-nav > ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    > ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
 
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    overflow-x: auto; /* Allow horizontal scrolling of nav content */
-    overflow-y: hidden;
-}
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        overflow-x: auto; /* Allow horizontal scrolling of nav content */
+        overflow-y: hidden;
 
-nav.site-nav > ul > li > a {
-    text-decoration: none;
-    color: var(--text);
-    display: block;
-    text-align: center;
-    padding: 5rem 1rem; /* Give plenty of padding so the touch target is as big as possible vertically */
+        > li > a {
+            text-decoration: none;
+            color: var(--text);
+            display: block;
+            text-align: center;
+            padding: 5rem 1rem; /* Give plenty of padding so the touch target is as big as possible vertically */
+        }
+    }
 }
 
 main {
@@ -366,27 +373,24 @@ main {
 
 #theme-checkbox[type="checkbox"] {
     opacity: 0; /* display: none would disable keyboard tab focusing */
-}
 
-#theme-checkbox[type="checkbox"] ~ label::before {
-    display: inline-block;
-    width: 1em;
-    text-align: center;
-    margin-right: 0.5ch;
-}
+    /* Add a focus outline to the fake checkbox substitute for a11y */
+    &:focus-visible + label::before {
+        outline: rgb(59, 153, 252) auto 5px;
+    }
 
-#theme-checkbox[type="checkbox"] ~ label::before {
-    content: "◑";
-}
-
-/* Add a focus outline to the fake checkbox substitute for a11y */
-#theme-checkbox[type="checkbox"]:focus-visible + label::before {
-    outline: rgb(59, 153, 252) auto 5px;
+    ~ label::before {
+        content: "◐";
+        display: inline-block;
+        width: 1em;
+        text-align: center;
+        margin-right: 0.5ch;
+    }
 }
 
 label[for=theme-checkbox] {
-    user-select: none;
     -webkit-user-select: none;
+    user-select: none;
 }
 
 .long-equation {
@@ -419,15 +423,15 @@ ul.blog-list {
     padding: 0;
     display: grid;
     gap: 1.5rem;
-}
 
-.blog-list > li > a {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    text-decoration: none;
-    background: var(--bg-nav);
-    border-radius: var(--border-radius);
-    overflow: hidden;
+    > li > a {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        text-decoration: none;
+        background: var(--bg-nav);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+    }
 }
 
 .blog-snippet-text {
@@ -447,10 +451,8 @@ ul.blog-list {
 .blog-snippet-image {
     max-height: 100%;
     height: var(--blog-snippet-height);
-}
 
-@media screen and (max-width: 750px) {
-    .blog-snippet-image {
+    @media screen and (max-width: 750px) {
         display: none;
     }
 }
