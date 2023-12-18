@@ -31,7 +31,7 @@ extra_head_items: <script defer src="/resources/scripts/index.js"></script>
             </div>
 
             <!-- Bash prompt -->
-            <code style="font-size: 2rem;"><span id="prompt-input" contenteditable="true" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" aria-label="Command input" tabindex="0"></span></code>
+            <code id="prompt-input-container"><span id="prompt-input" contenteditable="true" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" role="textbox" aria-label="Command input" tabindex="0"></span></code>
             <br>
             <code id="prompt-output">&nbsp;</code>
 
