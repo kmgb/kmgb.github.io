@@ -37,7 +37,7 @@ date: "2023-12-18"
 <p>
     As a very easy example, try clicking the button below and observe the result.
 </p>
-<button id="example-button" onclick="clickExampleButton(event)">Click me</button>
+<button id="example-button" type="button" onclick="clickExampleButton(event)">Click me</button>
 <p>
     Now, try doing the same thing with JavaScript by entering the developer console
     (<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> on Chrome or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> on

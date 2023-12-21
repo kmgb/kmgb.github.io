@@ -16,7 +16,7 @@ extra_head_items: <script defer src="/resources/scripts/text-analysis.js"></scri
         <div style="display: flex;">
             <label for="custom-glyph-input">U+</label>
             <input id="custom-glyph-input" size="6">
-            <button id="custom-glyph-button">Generate &rarr;</button>
+            <button id="custom-glyph-button" type="button">Generate &rarr;</button>
             <input id="custom-glyph-output" readonly aria-label="Glyph generator output field">
         </div>
         <h2>Interesting Unicode Codepoints</h2>
