@@ -94,6 +94,14 @@ a {
     text-decoration: underline;
 }
 
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
 abbr[title] {
     text-decoration: underline dotted;
     /* Allow ::after to position itself relative to this size */

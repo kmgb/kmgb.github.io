@@ -11,83 +11,120 @@ extra_head_items: >
     <article>
         <h1>Projectile Prediction Math</h1>
         <p>
-            This article tackles the problem of projectile prediction, as in, where one should aim a projectile if they want it to hit a moving target. The general idea is that if we are able to model the target's movement with a function of \(t\), then we should be able to solve for a way to intercept its path with our own projectile's. Let's start with some definitions:
+            This article tackles the problem of projectile prediction, as in, where one should aim a projectile if they
+            want it to hit a moving target. The general idea is that if we are able to model the target's movement with
+            a function of \(t\), then we should be able to solve for a way to intercept its path with our own
+            projectile's.
+        </p>
+
+        <h2>Problem Setup</h2>
+        <p>
+            Let's start with some definitions:
         </p>
         <ul>
-            <li>\(\vec{p}(t)\) is the position vector of the target relative to the shooter at time \(t\).</li>
-            <li>\(\vec{b}(t)\) is the position vector of the projectile relative to the shooter at time \(t\).</li>
+            <li>\(\vec{p}(t)\) is the position vector of the target relative to the shooter at time \(t\)</li>
+            <li>\(\vec{b}(t)\) is the position vector of the projectile relative to the shooter at time \(t\)</li>
+            <li>\(\vec{r}\) is the direction we must shoot our projectile in to hit the target</li>
         </ul>
         <p>
-            Finding the form that \(\vec{p}(t)\) and \(\vec{b}(t)\) take is part of the challenge of setting up the problem. Factors such as initial position, gravity, velocity and any other source of acceleration must be included. Here are some common examples for target position:
+            Finding the form that \(\vec{p}(t)\) and \(\vec{b}(t)\) take is part of the challenge of setting up the
+            problem. Factors such as initial position, gravity, velocity and any other source of acceleration must be
+            included. Here are some common examples for target position:
         </p>
         <ul>
-            <li>Target standing still: \(\vec{p}(t) = \vec{p}(0)\)</li>
-            <li>Target moving in a line: \(\vec{p}(t) = \vec{p}(0) + \vec{v}t\)</li>
-            <li>Target with initial velocity and acceleration: \(\vec{p}(t) = \vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2\)</li>
+            <li>Target standing still: \(\vec{p}(t) = \vec{p}_0\)</li>
+            <li>Target moving in a line: \(\vec{p}(t) = \vec{p}_0 + \vec{v}t\)</li>
+            <li>Target with initial velocity and acceleration: \(\vec{p}(t) = \vec{p}_0 + \vec{v}t + \frac{1}{2}\vec{a}t^2\)</li>
         </ul>
 
+        <h2>Rearranging Equations</h2>
         <p>
-            After we have the forms of \(\vec{p}(t)\) and \(\vec{b}(t)\), we can equate them.
-            <br>For this, I will be assuming the target is moving in a parabola (affected by gravity with initial velocity) and the projectile moves at a constant velocity from the origin.
+            For this tutorial, I will be assuming the target is moving in a parabola (affected by gravity with initial
+            velocity) and the projectile moves at a constant velocity from the origin. Once we have the forms of
+            \(\vec{p}(t)\) and \(\vec{b}(t)\), we can equate them. This is because we want them to be equal at some
+            time \(t\) in order for the projectile to hit the target. <strong>Note:</strong> I am not equating these
+            functions for all time, but rather for a specific unknown time \(t\).
         </p>
 
         <p>
             $$
             \begin{align}
                 \vec{b}(t) &= \vec{p}(t) \\
-                \vec{r}t &= \vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2 \\
-                \vec{r} &= \frac{\vec{p}(0) + \vec{v}t + \frac{1}{2}\vec{a}t^2}{t}
+                \vec{r}t &= \vec{p}_0 + \vec{v}t + \frac{1}{2}\vec{a}t^2 \\
+                \vec{r} &= \frac{\vec{p}_0 + \vec{v}t + \frac{1}{2}\vec{a}t^2}{t}
             \end{align}
             $$
         </p>
 
         <p>
-            Now we have \(\vec{r}\) isolated, but we don't know what \(t\), the time of impact, is. We obviously can't find a solution in this form, but we have a trick that will make this possible to solve &mdash; we can dot product both sides by themselves.
+            Now we have \(\vec{r}\) (the direction we need to aim in) isolated, but we don't know what \(t\) (the time
+            of impact) is. We can't easily find a solution in this form since the equation involves vectors, but we
+            have a trick that will make this easier to solve &mdash; we can dot product both sides by themselves:
         </p>
+        <div class="long-equation">
+            $$
+                \vec{r} \cdot \vec{r} = \left(\frac{\vec{p}_0 + \vec{v}t + \frac{1}{2}\vec{a}t^2}{t}\right) \cdot \left(\frac{\vec{p}_0 + \vec{v}t + \frac{1}{2}\vec{a}t^2}{t}\right)
+            $$
+        </div>
         <div class="long-equation">
             $$
                 \vec{r} \cdot \vec{r} =
                 \frac{
-                \vec{p}(0) \cdot \vec{p}(0)
-                + 2\vec{p}(0) \cdot \vec{v}t
-                + \vec{p}(0) \cdot \vec{a}t^2
+                \vec{p}_0 \cdot \vec{p}_0
+                + 2\vec{p}_0 \cdot \vec{v}t
+                + \vec{p}_0 \cdot \vec{a}t^2
                 + \vec{v} \cdot \vec{v}t^2
                 + \vec{v} \cdot \vec{a}t^3
                 + \frac{1}{4}\vec{a} \cdot \vec{a}t^4
-                }{ t^2}
+                }{t^2}
             $$
         </div>
-        <br>
-        Rearranging, and grouping by power of t, we get
-        <br>
+        <p>
+            Rearranging, and grouping by power of \(t\), we get:
+        </p>
         <div class="long-equation">
             $$
                 \frac{1}{4}\left(\|\vec{a}\|^2\right)t^4
                 + \left(\vec{a} \cdot \vec{v}\right)t^3
-                + \left(\vec{p}(0) \cdot \vec{a} + \|\vec{v}\|^2 - \|\vec{r}\|^2\right)t^2
-                + 2\left(\vec{p}(0) \cdot \vec{v}\right)t
-                + \|\vec{p}(0)\|^2 = 0
+                + \left(\vec{p}_0 \cdot \vec{a} + \|\vec{v}\|^2 - \|\vec{r}\|^2\right)t^2
+                + 2\left(\vec{p}_0 \cdot \vec{v}\right)t
+                + \|\vec{p}_0\|^2 = 0
             $$
         </div>
 
+        <h2>Solving the Problem</h2>
         <p>
-            So, we have a quartic equation whose roots are the times at which the projectile will hit the target. The roots are, of course, not necessarily real, which nicely highlights the fact that not all situations have a real(useful) solution that we can use. Such as a situation where the target is moving away from us faster than our projectile moves, making it impossible for us to ever hit it.
+            Now we have a quartic equation whose roots are the times at which the projectile will hit the target. The
+            roots are not necessarily positive or real, which nicely highlights the fact that not all situations have a
+            real(useful) solution that we can use. Such as a situation where the target is moving away from us faster
+            than our projectile moves, making it impossible for us to ever hit it.
         </p>
 
         <p>
-            Taking our quartic coefficients, and using a quartic solver library, we can find the roots of the equation. Taking the real roots (if they exist), we can use our \(\vec{p}(t)\) function to find the position of the target at each time, which gives us the direction we must shoot in to hit our target.
+            Taking our quartic coefficients, and using a quartic solver library, we can find the roots of the equation.
+            These roots allow us to finally solve the problem completely. Taking the real, positive roots, we can do
+            the following:
+            <ol>
+                <li>Choose one of the roots, \(t^*\), which is the time at which the projectile will hit the target</li>
+                <li>Use our \(\vec{p}(t)\) function with that root value to find the position of the target at that time, \(p(t^*)\)</li>
+                <li>Use our \(\vec{b}(t)\) function to figure out the launch angle, \(\vec{r}\), that results in \(b(t^*)=p(t^*)\)</li>
+                <li>Shoot the projectile in the direction of \(\vec{r}\)</li>
+            </ol>
         </p>
 
-        <p>If you get it working correctly, it should look something like this:</p>
-        <div class="videoWrapper">
-            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6LjGSMx9xpI?mute=1&start=4" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <p>Note: the aimbot is doing corrections to make the projectile aim toward where the feet of the target should be.</p>
-
-        <p>Here's another demonstration with both target and projectile being affected by gravity:</p>
-        <div class="videoWrapper">
-            <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/CdAuDBKvzr0" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-        </div>
+        <h2>Conclusion</h2>
+        <p>
+            Now you should know how to solve for where to shoot a projectile in order to hit a moving target. This can
+            be useful for games where you want to have a computer controlled character shoot at a moving target or to
+            provide aiming indicators to players using projectile weapons.
+        </p>
+        <p>
+            Adding more complexity to the problem, such as wind, or a projectile that accelerates, may make the
+            problem more difficult to solve. It might require more sophisticated numerical methods for solving for
+            roots since the problem may increase to a quintic or even higher-order function. However, the general
+            idea of equating the projectile and target position functions and solving for the time of impact remains
+            the same.
+        </p>
         <h2>Further reading:</h2>
         <ul>
             <li><a href="https://en.wikipedia.org/wiki/Monkey_and_hunter">Monkey and hunter (Wikipedia)</a></li>
