@@ -45,13 +45,17 @@ function processCommand(c) {
 
     if (c === "") {
         // Recognize command so it's not unknown
-    } else if (c === "help") {
+    }
+    else if (c === "help") {
         promptOutput.textContent = "Valid commands: "+validCmds;
-    } else if (c === "ls") {
-        promptOutput.textContent = "., .., resume, projectile, text, extensions";
-    } else if (c === "cd") {
+    }
+    else if (c === "ls") {
+        promptOutput.textContent = ".., blog, extensions, github, resume, text";
+    }
+    else if (c === "cd") {
         promptOutput.textContent = "Usage: cd <page>";
-    } else if (c.startsWith("cd ")) {
+    }
+    else if (c.startsWith("cd ")) {
         let page = c.substring(3).trim();
 
         switch (page) {
@@ -59,19 +63,20 @@ function processCommand(c) {
                 window.location.href = "./";
                 break;
             case "..":
+            case "github":
                 window.location.href = "https://github.com/kmgb/kmgb.github.io";
+                break;
+            case "blog":
+                window.location.href = "./blog";
                 break;
             case "extensions":
                 window.location.href = "./browser-extensions";
                 break;
-            case "projectile":
-                window.location.href = "./projectile";
+            case "resume":
+                window.location.href = "./resume";
                 break;
             case "text":
                 window.location.href = "./text-analysis";
-                break;
-            case "resume":
-                window.location.href = "./resume";
                 break;
             default:
                 promptOutput.textContent = "Page does not exist, use 'ls' for a list of pages";
