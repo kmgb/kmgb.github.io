@@ -64,10 +64,14 @@
 
     --page-maxwidth: 1080px;
     --scrollbar-gutter-width: 0px;
-    --blog-snippet-height: 180px;
+    --blog-snippet-image-size: 180px;
     --border-radius: 4px;
 
     font-size: 16px;
+
+    @media screen and (max-width: 750px) {
+        --blog-snippet-image-size: 120px;
+    }
 }
 
 .light-theme {
@@ -464,7 +468,7 @@ ul.blog-list {
 
     > li > a {
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: var(--blog-snippet-image-size) 1fr;
         text-decoration: none;
         background: var(--bg-nav);
         border-radius: var(--border-radius);
@@ -479,20 +483,34 @@ ul.blog-list {
 .blog-snippet-title {
     margin: 0 0 0.5rem 0;
     text-decoration: underline;
-    font-size: 1.rem;
+    font-size: 1.3rem;
 }
 
 .blog-snippet-date {
     margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+}
+
+/* If the webpage is too thin, the square blog snippet image becomes smaller, but we want
+   the background color to stretch to the edges. This handles that by stretching one pixel
+   of the background image to make the background color match the image. */
+.blog-snippet-image-container {
+    display: grid;
+    height: 100%;
+
+    /* Set the background as a really zoomed-in (on the 0,0 point) version of the image
+       that way we get ~1px of pure background color to repeat. This is not the best
+       solution, but pretty darn convenient. */
+    background: var(--blog-item-bg-image);
+    background-repeat: repeat;
+    background-position: 0px 0px;
+    background-size: calc(var(--blog-snippet-image-size) * 100);
 }
 
 .blog-snippet-image {
     max-height: 100%;
-    height: var(--blog-snippet-height);
-
-    @media screen and (max-width: 750px) {
-        display: none;
-    }
+    height: var(--blog-snippet-image-size);
+    margin: auto;
 }
 
 /* Text analysis */
