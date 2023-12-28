@@ -1,6 +1,6 @@
 ---
 title: Web Automation - Kevin Brennan
-description: My exploration of web automation using Javascript, Playwright, and AutoHotkey.
+description: My exploration of web automation using JavaScript, Playwright, and AutoHotkey.
 date: "2023-12-18"
 ---
 <script>
@@ -15,7 +15,7 @@ date: "2023-12-18"
 <p>
     Web automation refers to automating interactions with websites. This can be done for a variety of reasons, such as
     testing a website, scraping data from a website, or automating a task that would otherwise be tedious to do by hand.
-    My exploration of web automation will explore Javascript, Playwright, and AutoHotkey. I will discuss each method
+    My exploration of web automation will explore JavaScript, Playwright, and AutoHotkey. I will discuss each method
     and the advantages and disadvantages of each, with a particular focus on detectability.
 </p>
 <p>

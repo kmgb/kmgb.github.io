@@ -29,7 +29,7 @@ textArea.addEventListener('input', function () {
         codepoints.push(toHex(code));
 
         // Surrogate pair, two 'characters' for one codepoint in UTF-16
-        // Javascript is dumb, thus we must skip an extra character since it doesn't know these two are one
+        // JavaScript is dumb, thus we must skip an extra character since it doesn't know these two are one
         if (code >= 0x10000)
             i++;
     }
@@ -65,7 +65,7 @@ function generateChar() {
     let value = 'Error';
 
     if (codepoint >= 0xD800 && codepoint <= 0xDFFF) {
-        alert('Cannot generate lone High-Surrogate or Low-Surrogate characters, as Javascript does not allow it.'
+        alert('Cannot generate lone High-Surrogate or Low-Surrogate characters, as JavaScript does not allow it.'
             +'\nYou can use an AutoHotkey script to input them as described at the bottom of this page.');
 
         value = 'Surrogate character';
