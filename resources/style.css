@@ -422,11 +422,10 @@ main {
     }
 
     ~ label::before {
-        content: "◐";
+        content: url("/resources/images/theme-icon.svg");
         display: inline-block;
         width: 1em;
-        text-align: center;
-        margin-right: 0.5ch;
+        margin-right: 0.3ch;
     }
 }
 
