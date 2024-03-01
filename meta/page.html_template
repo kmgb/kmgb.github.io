@@ -41,7 +41,7 @@
 
         <footer>
             <div class="footer-inner">
-                <span class="footer-left">© 2023 Kevin Brennan</span>
+                <span class="footer-left">© 2024 Kevin Brennan</span>
                 <span class="footer-right"><input type="checkbox" id="theme-checkbox"/><label for="theme-checkbox">Website theme</label></span>
             </div>
         </footer>
