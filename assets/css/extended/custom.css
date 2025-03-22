@@ -1,0 +1,27 @@
+/* Restore some styling for a few elements that get reset by the theme */
+
+kbd {
+    /* font: inherit; */
+    font-size: 1rem;
+    outline: 1px solid currentColor;
+    box-shadow: 0 0.1em 0.1em currentColor;
+    border-radius: 2px;
+    padding: 0 0.2em;
+    margin: 0 0.1em;
+}
+
+.post-content button {
+    background: var(--code-bg);
+    padding: 0 0.4em;
+    border-radius: 2px;
+    border: 1px solid currentColor;
+}
+
+.post-content textarea, input {
+    /* background: var(--code-bg); */
+    color: var(--content);
+    /* border-radius: 3px; */
+    outline: revert; /* Fix the theme breaking accessibility */
+    border: 1px solid currentColor;
+    padding: 0px 6px;
+}
