@@ -2,9 +2,13 @@
 author: Kevin Brennan
 title: Projectile Prediction
 date: 2022-10-16
-summary: The math behind projectile prediction. Using initial conditions to determine launch angle.
+summary: The math behind projectile prediction. Using initial conditions to determine the launch angle for interception.
 
 math: true
+
+aliases:
+- "/projectile"
+- "/blog/projectile-prediction"
 ---
 
 This article tackles the problem of projectile prediction, as in, where one should aim a projectile if they

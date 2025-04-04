@@ -8,8 +8,6 @@ summary: My exploration of web automation using JavaScript, Playwright, and Auto
 #     image: "cover-post-web-automation.png"
 ---
 
-
-# Web Automation
 Web automation refers to automating interactions with websites. This can be done for a variety of reasons, such as
 testing a website, scraping data from a website, or automating a task that would otherwise be tedious to do by hand.
 My exploration of web automation will explore JavaScript, Playwright, and AutoHotkey. I will discuss each method
