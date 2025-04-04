@@ -51,3 +51,8 @@ menu:
     - identifier: tanks
       name: Tanks Game
       url: /tanks/
+
+# Recommended by Hugo for GitHub Pages
+caches:
+  images:
+    dir: :cacheDir/images
