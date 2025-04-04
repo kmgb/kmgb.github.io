@@ -1,0 +1,58 @@
+baseURL: https://kmgb.github.io/
+languageCode: en-us
+title: Kevin Brennan
+theme: ["PaperMod"]
+
+markup:
+  goldmark:
+    renderer:
+      # Allow raw HTML in markdown (fills the feature gap in markdown elements)
+      # I write all the blog posts and pages, so there is no real concern of unsafe html
+      unsafe: true
+
+    extensions:
+      # Tell Goldmark to not mangle math inside these delimiters
+      passthrough:
+        delimiters:
+          block:
+          - - \[
+            - \]
+          - - $$
+            - $$
+          inline:
+          - - \(
+            - \)
+        enable: true
+
+params:
+  homeInfoParams:
+    Title: Hi there 👋
+    Content: >
+      I'm a software developer with 4 years of professional experience.
+
+  socialIcons:
+    - name: "github"
+      url: "https://github.com/kmgb"
+    - name: "gitlab"
+      url: "https://gitlab.com/kmgb"
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/kmgb/"
+    - name: "rss"
+      url: "/index.xml"
+
+menu:
+  main:
+    - identifier: text-analysis
+      name: Text Analysis
+      url: /text-analysis/
+    - identifier: resume
+      name: Resume
+      url: /resume/
+    - identifier: tanks
+      name: Tanks Game
+      url: /tanks/
+
+# Recommended by Hugo for GitHub Pages
+caches:
+  images:
+    dir: :cacheDir/images
